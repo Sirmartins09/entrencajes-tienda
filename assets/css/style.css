@@ -1,0 +1,1854 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+body {
+    font-family: "Poppins", sans-serif; /* Usamos Poppins para el texto general */
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #f8f8f8; /* Fondo más claro para todo el cuerpo */
+    box-sizing: border-box; /* Esto es una buena práctica para el cálculo de cajas */
+}
+
+/* --- NAV --- */
+.nav {
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1200px; /* Centra el contenido del nav */
+    margin: 0 auto;
+}
+
+.logo {
+    font-family: "Playfair Display", serif; /* Mantenemos Playfair para el logo */
+    font-size: 1.8rem; /* Un poco más grande */
+    font-weight: 700;
+    color: #008064; /* VERDE principal para el logo */
+}
+.menu {
+  display: flex;
+  align-items: center;
+}
+.menu ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem; /* Espaciado entre elementos del menú */
+    margin: 0;
+    padding: 0;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #333; /* Color de texto más oscuro */
+    display: block;
+    padding: 10px 0; /* Ajustamos padding */
+    font-weight: 500;
+    transition: color 0.2s ease, border-bottom 0.2s ease; /* Transición para el borde también */
+    position: relative; /* Para el efecto de subrayado */
+}
+
+.menu a:hover {
+    color: #008064; /* VERDE de hover */
+}
+
+/* Efecto de subrayado en hover */
+.menu a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #008064; /* VERDE para el subrayado */
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s ease-in-out;
+}
+
+.menu a:hover::after {
+    width: 100%;
+}
+
+
+.menu li {
+    position: relative;
+}
+
+/* --- SUBMENUS --- */
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.1); /* Sombra más pronunciada */
+    list-style: none;
+    padding: 10px 0;
+    z-index: 100;
+    min-width: 200px; /* Ancho mínimo para submenús */
+    border-radius: 5px; /* Bordes redondeados */
+}
+/* Agrega esta regla para que los submenús se muestren al pasar el ratón */
+.dropdown:hover > .submenu {
+    display: block; /* o 'flex' si prefieres un diseño en fila para los ítems del submenú */
+}
+
+.submenu li a {
+    padding: 10px 20px; /* Más padding en los ítems del submenú */
+    display: block;
+    text-decoration: none;
+    color: #333;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+
+
+.submenu li a:hover {
+    background-color: #f5f5f5; /* Fondo más suave al pasar el mouse */
+    color: #008064; /* VERDE de hover en submenú */
+}
+
+/* --- MEGAMENU --- */
+.megadropdown {
+    position: relative;
+}
+
+.dropdown .submenu,
+.megadropdown .megamenú {
+    display: none;
+}
+
+/* Agrega esta regla para que los submenús se muestren al pasar el ratón */
+.dropdown:hover > .submenu {
+    display: block; /* o 'flex' si prefieres un diseño en fila para los ítems del submenú */
+}
+
+
+.megamenú {
+  position: absolute;
+  top: 100%;
+left: 0;
+right: auto;
+transform: none;
+  background: #fff;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  padding: 2rem;
+  border-radius: 5px;
+  z-index: 100;
+  display: none;
+  max-width: 1000px;
+  width: max-content;
+    min-width: 700px;
+  gap: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+
+.megamenú .columna {
+  flex: 1 1 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+
+.megadropdown:hover > .megamenú {
+  display: flex;
+}
+
+.megamenú h4 {
+    font-size: 1.1rem; /* Un poco más grande */
+    font-weight: 700; /* Más peso */
+    margin-bottom: 1rem;
+    color: #008064; /* VERDE distintivo para los títulos de columna */
+    text-transform: uppercase; /* Mayúsculas para los títulos */
+    letter-spacing: 0.5px;
+}
+
+.megamenú ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.megamenú li {
+    margin-bottom: 0.6rem;
+}
+
+
+.megamenú li a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+  padding: 5px 0;
+  line-height: 1.4;
+}
+
+
+
+.megamenú li a:hover {
+    color: #008064; /* VERDE de hover en megamenú */
+}
+
+/* === HAMBURGUESA SOLO EN MOBILE === */
+.hamburguesa {
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: none;
+    color: #008064; /* VERDE para el icono de hamburguesa */
+}
+
+.acciones {
+    display: flex;
+    gap: 1.5rem; /* Más espacio entre elementos de acciones */
+    align-items: center;
+}
+
+/* Icono carrito */
+.bi-cart-check-fill { /* Usamos la clase del icono SVG */
+    width: 24px;
+    height: 24px;
+    fill: #333; /* Cambiamos a fill para SVG */
+    transition: fill 0.3s, transform 0.2s;
+    cursor: pointer;
+}
+.bi-cart-check-fill:hover {
+    fill: #008064; /* VERDE de hover para el carrito */
+    transform: scale(1.1);
+}
+
+/* --- Estilos para el contador de productos en el carrito (añadir a style.css) --- */
+.acciones {
+    display: flex; /* Para alinear el buscador y el carrito */
+    align-items: center; /* Centrar verticalmente */
+    gap: 15px; /* Espacio entre el buscador y el carrito */
+}
+
+.cart-icon-link {
+    position: relative; /* Esencial para posicionar el contador absolutamente */
+    display: flex; /* Para alinear el SVG y el contador si es necesario */
+    align-items: center; /* Centrar verticalmente */
+    text-decoration: none;
+    color: currentColor; /* Hereda el color del texto/ícono circundante */
+    /* margin-left: 15px; /* Puedes ajustar este margen si está muy pegado a otro elemento */
+}
+
+.cart-icon-link svg {
+    /* Puedes añadir estilos específicos a tu SVG si lo deseas */
+    /* Por ejemplo, para que tenga un color consistente con el resto de tus íconos */
+    fill: #333; /* O el color que uses para tus íconos */
+}
+
+
+.cart-item-count {
+    background-color: #c00; /* Color de fondo del contador (ej: rojo) */
+    color: #fff; /* Color del texto del contador */
+    border-radius: 50%; /* Para hacerlo redondo */
+    padding: 2px 6px; /* Ajusta el padding para el tamaño */
+    font-size: 0.8em; /* Tamaño de la fuente */
+    font-weight: bold;
+    position: absolute; /* Posicionamiento absoluto respecto a .cart-icon-link */
+    top: -8px; /* Ajusta para que quede arriba del ícono */
+    right: -8px; /* Ajusta para que quede a la derecha del ícono */
+    min-width: 20px; /* Asegura que sea redondo incluso con un dígito */
+    height: 20px; /* Asegura una altura fija para un círculo perfecto */
+    display: flex; /* Para centrar el número dentro del círculo */
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box; /* Incluye padding y borde en el width/height */
+    z-index: 10; /* Asegura que esté por encima de otros elementos */
+    line-height: 1; /* Ayuda a centrar el texto verticalmente */
+}
+
+/* Opcional: Ocultar el contador si está en 0 */
+.cart-item-count.hidden {
+    display: none;
+}
+
+/* Buscador */
+.buscador {
+    padding: 0.6rem 1rem; /* Más padding */
+    border: 1px solid #ddd; /* Borde más sutil */
+    border-radius: 25px; /* Más redondeado */
+    font-size: 0.95rem;
+    outline: none;
+    width: 180px; /* Ancho fijo para el buscador */
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.buscador:focus {
+    border-color: #008064; /* VERDE al enfocar */
+    box-shadow: 0 0 0 2px rgba(0, 128, 100, 0.2); /* Sombra al enfocar */
+}
+.buscador::placeholder {
+    color: #aaa;
+}
+
+/* Ocultar botón de cerrar menú en escritorio */
+.cerrar-menu {
+  display: none;
+}
+
+/* sección hero*/
+.hero {
+    padding: 8rem 2rem;
+    text-align: center;
+    background:
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), /* Ajustamos el gradiente */
+        url("../img/fondo-lenceria.jpg"); /* Asegúrate que la ruta sea correcta */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 500px; /* Altura mínima para el hero */
+}
+
+.hero h1 {
+    font-family: "Playfair Display", serif;
+    font-size: 3.5rem; /* Tamaño de fuente más grande */
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra para mejor lectura */
+}
+
+.hero p {
+    font-size: 1.5rem; /* Tamaño de fuente más grande */
+    font-weight: 300; /* Fuente más delgada */
+    letter-spacing: 1px; /* Espaciado entre letras */
+}
+
+.catalogo {
+    padding: 4rem 2rem; /* Más padding para la sección */
+    background: #fff;
+    text-align: center;
+}
+
+.catalogo h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #008064; /* VERDE para los títulos de sección */
+}
+
+.productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Min-width un poco más grande */
+    gap: 2rem; /* Más espacio entre productos */
+    max-width: 1200px; /* Centra los productos */
+    margin: 0 auto;
+}
+
+.producto {
+    background: #fff; /* Fondo blanco */
+    border: 1px solid #eee;
+    padding: 1.5rem; /* Más padding */
+    text-align: center;
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Sombra sutil */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.producto:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.producto img {
+    width: 100%;
+    height: 250px; /* Altura fija para las imágenes de producto */
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border-radius: 4px; /* Bordes ligeramente redondeados en la imagen */
+}
+
+.producto h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.producto p {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #008064; /* VERDE para el precio */
+    margin-bottom: 1.5rem;
+}
+
+.mercadopago-button { /* Clase para el botón de Mercado Pago si lo estilizaras */
+    background-color: #009ee3; /* Color de Mercado Pago */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.mercadopago-button:hover {
+    background-color: #007bb6;
+}
+
+.nosotras, .contacto {
+    padding: 4rem 2rem;
+    background: #fdfdfd; /* Fondo más claro */
+    text-align: center;
+}
+
+.carrito {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    background: white;
+    border: 1px solid #ddd;
+    padding: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15); /* Sombra más definida */
+    width: 350px; /* Ancho ligeramente mayor */
+    border-radius: 8px;
+    z-index: 100;
+}
+
+.oculto {
+    display: none;
+}
+
+/* --- SECCIÓN DESTACADOS (Banners) --- */
+.destacados {
+    display: flex;
+    justify-content: center;
+    gap: 2rem; /* Más espacio entre banners */
+    padding: 4rem 2rem; /* Más padding */
+    flex-wrap: wrap;
+    background-color: #f0f0f0; /* Un fondo ligeramente gris para esta sección */
+}
+
+.banner {
+    position: relative;
+    width: 320px; /* Un poco más grande */
+    overflow: hidden;
+    border-radius: 10px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Sombra para destacar */
+}
+
+.banner img {
+    width: 100%;
+    height: 250px; /* Altura fija para banners */
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.banner:hover img {
+    transform: scale(1.08); /* Zoom un poco menor */
+}
+
+.banner .texto {
+    position: absolute;
+    bottom: 25px; /* Más arriba */
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-weight: 700; /* Más negrita */
+    font-size: 1.8rem; /* Tamaño de fuente más grande */
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.7); /* Sombra más pronunciada */
+    border-bottom: 3px solid white; /* Borde más grueso */
+    padding-bottom: 8px; /* Más padding */
+    white-space: nowrap; /* Evita que el texto se rompa en varias líneas */
+}
+
+/* --- SECCIÓN CATEGORÍAS DESTACADAS --- */
+.categorias-destacadas {
+    padding: 4rem 2rem;
+    text-align: center;
+    background-color: #fff; /* Fondo blanco */
+}
+
+.categorias-destacadas h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #008064; /* VERDE para los títulos de sección */
+}
+
+.grid-categorias {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* Min-width más grande */
+    gap: 2.5rem; /* Más espacio */
+    margin-top: 2rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.categoria-card {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1); /* Sombra más definida */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    background: #fff;
+}
+
+.categoria-card img {
+    width: 100%;
+    display: block;
+    transition: transform 0.3s ease;
+    height: 300px; /* Altura fija para imágenes de categoría */
+    object-fit: cover;
+}
+
+.categoria-card .texto {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.6); /* Fondo más oscuro para el texto */
+    color: #fff;
+    padding: 1.2rem; /* Más padding */
+    font-size: 1.2rem; /* Tamaño de fuente más grande */
+    font-weight: 600; /* Más negrita */
+    text-align: center;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+}
+
+.categoria-card:hover {
+    transform: translateY(-8px); /* Más levantado al hover */
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+.categoria-card:hover img {
+    transform: scale(1.03); /* Zoom más sutil */
+}
+
+.categoria-card:hover .texto {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- SECCIÓN INSTAGRAM --- */
+.instagram-section {
+    padding: 4rem 2rem;
+    text-align: center;
+    background: #f0f0f0; /* Fondo gris claro */
+}
+
+.instagram-section h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #008064; /* VERDE para los títulos de sección */
+}
+
+.instagram-swiper {
+    max-width: 1200px; /* Ancho máximo para el swiper */
+    margin: 0 auto;
+    padding-bottom: 2rem; /* Espacio para la paginación si se activa */
+}
+
+.insta-item {
+    position: relative;
+    width: 100%;
+    height: 300px; /* Altura fija para las imágenes de Instagram */
+    display: block;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.insta-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.overlay {
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo más oscuro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.overlay img {
+    width: 50px; /* Icono de Instagram más grande */
+    height: 50px;
+    filter: brightness(0) invert(1); /* Pone el icono blanco */
+}
+
+.insta-item:hover img {
+    transform: scale(1.05);
+}
+
+.insta-item:hover .overlay {
+    opacity: 1;
+}
+
+/* --- FOOTER --- */
+.footer {
+    background: #333; /* Fondo más oscuro para el footer */
+    color: #f8f8f8; /* Texto claro */
+    padding: 4rem 2rem 2rem;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2.5rem; /* Más espacio */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-container h3 {
+    font-weight: 600;
+    margin-bottom: 1.2rem;
+    color: #fff; /* Títulos en blanco */
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.footer-logo h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem; /* Más grande */
+    color: #008064; /* VERDE para el logo en footer */
+    margin-bottom: 0.8rem;
+}
+
+.footer-logo p {
+    font-size: 0.95rem;
+    color: #ccc; /* Texto más claro */
+    line-height: 1.6;
+}
+
+.footer-container ul {
+    list-style: none;
+    padding: 0;
+    li {
+        margin-bottom: 0.7rem; /* Más espacio entre ítems */
+        a {
+            text-decoration: none;
+            color: #ccc;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+            &:hover {
+                color: #008064; /* VERDE de hover */
+            }
+        }
+    }
+}
+
+.social-links i {
+    margin-right: 0.6rem; /* Más espacio para los iconos */
+    font-size: 1.1rem;
+}
+
+.footer-newsletter form {
+    display: flex;
+    flex-direction: column;
+    input {
+        padding: 0.8rem; /* Más padding */
+        margin-bottom: 0.8rem;
+        border: 1px solid #555; /* Borde más oscuro */
+        border-radius: 5px;
+        background-color: #444; /* Fondo oscuro */
+        color: #fff;
+    }
+    input::placeholder {
+        color: #aaa;
+    }
+    button {
+        background: #008064; /* VERDE para el botón de newsletter */
+        color: #fff;
+        border: none;
+        padding: 0.8rem;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: 500;
+        transition: background-color 0.3s ease;
+        &:hover {
+            background: #006652; /* Verde más oscuro al hover */
+        }
+    }
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 3rem; /* Más espacio */
+    font-size: 0.8rem;
+    color: #999;
+    border-top: 1px solid #444; /* Línea separadora */
+    padding-top: 1.5rem;
+}
+
+
+/* === VERSIÓN MOBILE (hasta 768px) === */
+@media (max-width: 768px) {
+    .hamburguesa {
+        display: block;
+    }
+
+    .menu {
+        position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 80%;
+    max-width: 300px;
+    background: white;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 2rem;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 999;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+    overflow-y: auto;
+    }
+
+    .menu.menu-activo {
+        transform: translateX(0);
+    }
+
+    .menu ul {
+        flex-direction: column;
+        width: 100%;
+         gap: 1rem;
+    }
+      .menu ul li a {
+    padding: 1rem 1.5rem;
+  }
+      .megamenú {
+    flex-direction: column;
+    min-width: 100%;
+  }
+
+  .megamenú .columna {
+    min-width: 100%;
+  }
+      .menu li.dropdown .submenu,
+  .menu li.megadropdown .megamenú {
+    display: none;
+  }
+
+  .menu li.abierto .submenu,
+  .menu li.abierto .megamenú {
+    display: block;
+  }
+    .menu li {
+        width: 100%;
+        border-bottom: 1px solid #eee; /* Separador para ítems de menú en móvil */
+        padding: 0.5rem 0;
+    }
+    .menu li:last-child {
+        border-bottom: none;
+    }
+
+    .menu a {
+        padding: 15px 0; /* Más padding para los links en móvil */
+        font-size: 1.1rem;
+    }
+    .menu a::after { /* Deshabilitamos el subrayado en móvil */
+        content: none;
+    }
+
+    .acciones {
+        display: none; /* Ocultamos el carrito y buscador en mobile, para priorizar el menú */
+    }
+
+    /* Botón de cerrar */
+    .cerrar-menu {
+        font-size: 2rem;
+        background: none;
+        border: none;
+        align-self: flex-end;
+        cursor: pointer;
+        margin-bottom: 1rem;
+        display: block; /* Aseguramos que se muestre */
+        color: #008064; /* VERDE para el botón de cerrar */
+    }
+
+    /* Submenús como acordeón en móvil */
+      .submenu {
+    position: static;
+    display: flex !important;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    box-shadow: none;
+    background: transparent;
+  }
+
+  .submenu li a {
+    padding: 0.75rem 1.5rem;
+    width: 100%;
+    display: block;
+    color: #333;
+    background: none;
+  }
+
+  .submenu li a:hover {
+    background-color: #f5f5f5;
+    color: #008064;
+  }
+    .dropdown .submenu,
+    .megadropdown .megamenú {
+        position: static; /* Quita el posicionamiento absoluto */
+        box-shadow: none;
+        padding-left: 1rem 0; /* Indenta el contenido */
+        border-top: 1px solid #eee; /* Borde superior para separar */
+        margin-top: 0.5rem;
+        flex-direction: column;
+        min-width: unset;
+        width: 100%;
+    }
+  .megadropdown:hover .megamenú {
+    display: flex;
+  }
+
+
+ 
+    .megamenú {
+        flex-direction: column; /* Columnas apiladas en móvil */
+        min-width: auto !important;
+        width: 100% !important;
+        padding: 0.5rem 0; /* Ajustamos padding */
+        gap: 0.5rem; /* Ajustamos el espacio */
+    }
+
+    .megamenú .columna {
+        width: 100%;
+        margin-bottom: 1rem;
+        padding-left: 1rem; /* Indentamos las columnas */
+    }
+
+    .megamenú h4 {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+        color: #555; /* Color más suave */
+    }
+
+    .megamenú ul {
+        padding-left: 0.5rem; /* Indentación para la lista */
+    }
+
+    .megamenú ul li {
+        padding: 0.3rem 0;
+    }
+
+    .megamenú ul li a {
+        font-size: 0.95rem;
+        color: #666;
+    }
+
+    /* Ajustes para el hero en móvil */
+    .hero {
+        padding: 6rem 1rem;
+        min-height: 400px;
+    }
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    .hero p {
+        font-size: 1.2rem;
+    }
+
+    /* Ajustes para las secciones en móvil */
+    .destacados, .categorias-destacadas, .catalogo, .instagram-section {
+        padding: 2.5rem 1rem;
+    }
+
+    .destacados .banner {
+        width: 100%; /* Banners ocupan todo el ancho */
+    }
+
+    .categorias-destacadas .grid-categorias {
+        grid-template-columns: 1fr; /* Una columna en móvil */
+    }
+
+    .producto {
+        margin-bottom: 1.5rem; /* Espacio extra entre productos */
+    }
+
+    .instagram-swiper {
+        padding-bottom: 1.5rem; /* Ajustamos padding del swiper */
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr; /* Una columna para el footer en móvil */
+        text-align: center;
+    }
+    .footer-newsletter form {
+        align-items: center; /* Centra los elementos del formulario */
+    }
+
+}
+
+    @media (min-width: 769px) {
+  .megadropdown:hover .megamenú {
+    display: flex;
+  }
+}
+/*===============*/
+/*pagina de batas CARDS*/
+/*===============*/
+.breadcrumb {
+    font-size: 0.9em;
+    margin-bottom: 10px;
+    text-align: left; /* Alinea las migas de pan a la izquierda */
+}
+
+.breadcrumb a {
+    text-decoration: none;
+    color: #666;
+    margin-right: 5px;
+}
+
+.breadcrumb a:hover {
+    color: #000;
+}
+
+.category-title {
+    font-size: 2.5em;
+    margin: 10px 0 20px;
+    color: #222;
+}
+
+/* Contenedor de la Cuadrícula de Productos */
+.product-grid-container {
+    display: grid;
+    /* Define 3 columnas de igual ancho con un mínimo de 300px, y permite que se ajusten */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px; /* Espacio entre las tarjetas */
+    padding: 30px;
+    max-width: 1200px; /* Ancho máximo del contenedor */
+    margin: 0 auto; /* Centrar el contenedor en la página */
+}
+
+/* Estilos para cada Tarjeta de Producto */
+.product-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden; /* Asegura que la imagen no se salga de los bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    text-decoration: none; /* Quitar el subrayado de los enlaces de las tarjetas */
+    color: inherit; /* Heredar el color del texto */
+    display: flex;
+    flex-direction: column; /* Organiza imagen y texto verticalmente */
+}
+
+.product-card a {
+    text-decoration: none; /* Asegura que el enlace dentro de la tarjeta no tenga subrayado */
+    color: inherit; /* Hereda el color del texto */
+    display: block; /* Hace que el enlace ocupe toda la tarjeta */
+}
+
+.product-card:hover {
+    transform: translateY(-5px); /* Pequeño efecto de elevación al pasar el ratón */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.product-card-image {
+    width: 100%;
+    height: 350px; /* Altura fija para las imágenes */
+    object-fit: cover; /* Asegura que la imagen cubra el área sin distorsionarse */
+    display: block; /* Elimina el espacio extra debajo de la imagen */
+    border-bottom: 1px solid #eee;
+}
+
+.product-card-info {
+    padding: 15px;
+    flex-grow: 1; /* Permite que el contenido de info crezca para ocupar espacio */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Empuja el precio abajo si el título es largo */
+}
+
+.product-card-title {
+    font-size: 1.2em;
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #333;
+    line-height: 1.3;
+    min-height: 2.6em; /* Asegura una altura mínima para títulos de una o dos líneas */
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Limita el título a 2 líneas */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Añade puntos suspensivos si el texto se corta */
+}
+
+.product-card-price {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #c00; /* Color distintivo para el precio */
+    margin-bottom: 0;
+    margin-top: auto; /* Empuja el precio al final del contenedor de info */
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+    .product-grid-container {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Reduce el min-width */
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .category-title {
+        font-size: 2em;
+    }
+
+    .product-card-image {
+        height: 300px; /* Ajusta la altura de la imagen en móviles */
+    }
+
+    .product-card-title {
+        font-size: 1.1em;
+    }
+
+    .product-card-price {
+        font-size: 1.3em;
+    }
+}
+
+@media (max-width: 480px) {
+    .product-grid-container {
+        grid-template-columns: 1fr; /* Una columna en pantallas muy pequeñas */
+        padding: 15px;
+    }
+}
+
+
+/*===============*/
+/*pagina bata clasica */
+/*===============*/
+/* Estilos Generales */
+
+
+.header {
+    padding: 15px 30px;
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #eee;
+}
+
+.breadcrumb a {
+    text-decoration: none;
+    color: #666;
+    margin-right: 5px;
+}
+
+.breadcrumb a:hover {
+    color: #000;
+}
+
+/* Diseño de la Página de Producto */
+.product-page {
+    display: flex;
+    flex-wrap: wrap; /* Permite que las secciones se envuelvan en pantallas pequeñas */
+    padding: 30px;
+    gap: 40px; /* Espacio entre las columnas */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.product-image-gallery {
+    flex: 1; /* Ocupa el espacio disponible */
+    min-width: 350px; /* Ancho mínimo para la galería */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-image-container {
+    width: 100%;
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.main-product-image {
+    width: 100%;
+    height: auto;
+    display: block; /* Elimina espacio extra debajo de la imagen */
+    border-radius: 5px;
+}
+
+.gallery-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.gallery-arrow:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-color: #888;
+}
+
+.prev-arrow {
+    left: 10px;
+}
+
+.next-arrow {
+    right: 10px;
+}
+/* ==========================
+    MINIATURAS
+========================== */
+
+.thumbnail-container {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    overflow-x: auto; /* Permite scroll horizontal si hay muchas miniaturas */
+    padding-bottom: 5px; /* Para el scrollbar */
+}
+
+.thumbnail-item {
+    width: 80px; /* Tamaño fijo para las miniaturas */
+    height: 80px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 3px;
+    transition: border-color 0.2s;
+    object-fit: cover; /* Asegura que la imagen cubra el área sin distorsionarse */
+}
+
+.thumbnail-item.active {
+    border-color: #007bff; /* Color para la miniatura activa */
+}
+
+.gallery-dots {
+    display: flex;
+    gap: 8px;
+    margin-top: 15px;
+}
+/* ==========================
+    DOTS
+========================== */
+.gallery-dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 12px;
+  gap: 6px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color: #bbb;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.dot.active {
+    background-color: #333;
+}
+
+
+.product-details {
+    flex: 1.2; /* Ocupa más espacio que la galería */
+    min-width: 300px; /* Ancho mínimo para los detalles */
+}
+
+.product-title {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #222;
+}
+
+.product-article,
+.product-material,
+.product-availability {
+    font-size: 0.95em;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.product-price {
+    font-size: 1.8em;
+    color: #c00; /* Un color rojo para el precio */
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.product-option {
+    margin-bottom: 20px;
+}
+
+.product-option label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+/* Selectores de Color */
+.color-swatches {
+    display: flex;
+    gap: 10px;
+}
+
+.color-swatch {
+    width: 35px;
+    height: 35px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: border-color 0.2s, transform 0.2s;
+}
+
+.color-swatch.active {
+    border-color: #007bff; /* Borde azul para el color seleccionado */
+    transform: scale(1.1);
+}
+
+.color-swatch.black {
+    background-color: #000;
+}
+
+.color-swatch.camel {
+    background-color: #b88d5e; /* Un tono de camel */
+}
+
+/* Selectores de Talla */
+.size-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.size-button {
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.size-button:hover {
+    background-color: #f0f0f0;
+}
+
+.size-button.active {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+}
+
+/* Control de Cantidad */
+.quantity-control {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.quantity-button {
+    width: 35px;
+    height: 35px;
+    border: 1px solid #ccc;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s;
+}
+
+.quantity-button:hover {
+    background-color: #e0e0e0;
+}
+
+.quantity-input {
+    width: 50px;
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+/* Botón "Agregar al Carrito" */
+.add-to-cart-button {
+    background-color: #28a745; /* Verde Bootstrap */
+    color: #fff;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 25px;
+    transition: background-color 0.3s ease;
+    width: 100%; /* Ocupa todo el ancho disponible */
+    max-width: 300px; /* Limita el ancho en pantallas grandes */
+}
+
+.add-to-cart-button:hover {
+    background-color: #218838; /* Verde más oscuro al pasar el ratón */
+}
+
+/* Mensaje de Confirmación del Carrito */
+.cart-confirmation-message {
+    background-color: #d4edda; /* Verde claro */
+    color: #155724; /* Texto verde oscuro */
+    border: 1px solid #c3e6cb;
+    padding: 15px 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.95em;
+    opacity: 1; /* Para la animación de aparición */
+    transition: opacity 0.5s ease;
+}
+
+.cart-confirmation-message.hidden {
+    opacity: 0;
+    pointer-events: none; /* Evita interacciones cuando está oculto */
+    height: 0;
+    padding: 0;
+    margin: 0;
+    overflow: hidden; /* Oculta el contenido completamente */
+    border: none;
+}
+
+
+.cart-confirmation-message .go-to-cart-link {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 15px;
+}
+
+.cart-confirmation-message .go-to-cart-link:hover {
+    text-decoration: underline;
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+    .product-page {
+        flex-direction: column;
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .product-image-gallery,
+    .product-details {
+        min-width: unset; /* Elimina el ancho mínimo para dispositivos pequeños */
+        width: 100%;
+    }
+
+    .product-title {
+        font-size: 1.7em;
+    }
+
+    .add-to-cart-button {
+        max-width: 100%;
+    }
+}
+/*================================================*/
+/* Estilos Específicos para la Página del Carrito */
+/*=================================================*/
+.cart-page-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que las secciones se apilen en pantallas pequeñas */
+    gap: 30px; /* Espacio entre las columnas */
+    padding: 30px;
+    max-width: 1200px; /* Ancho máximo del contenedor principal */
+    margin: 0 auto; /* Centra el contenedor en la página */
+    box-sizing: border-box; /* Asegura que el padding no añada ancho extra */
+}
+
+.page-title {
+    font-size: 2.2em;
+    text-align: center;
+    margin-bottom: 25px;
+    color: #222;
+    width: 100%; /* Asegura que el título ocupe todo el ancho */
+    padding-top: 20px; /* Espacio para que no quede pegado al header */
+}
+
+.cart-items-section {
+    flex: 2; /* Ocupa más espacio, 2/3 del ancho disponible */
+    min-width: 500px; /* Ancho mínimo para la lista de items */
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.cart-summary-section {
+    flex: 1; /* Ocupa menos espacio, 1/3 del ancho disponible */
+    min-width: 300px; /* Ancho mínimo para el resumen */
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Encabezados de la tabla del carrito */
+.cart-header-row {
+    display: grid;
+    /* Define 6 columnas: imagen (pequeña), detalles (ancha), precio, cantidad, subtotal, eliminar (pequeña) */
+    grid-template-columns: 0.8fr 2fr 1fr 1fr 1fr 0.3fr; 
+    gap: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    font-weight: bold;
+    color: #555;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    align-items: center; /* Centra verticalmente el texto */
+}
+
+/* Alinear los encabezados */
+.header-price, 
+.header-subtotal {
+    justify-content: flex-end; /* Alinear a la derecha los precios/subtotales */
+    text-align: right; /* Asegura el texto a la derecha */
+}
+.header-quantity {
+    justify-content: center; /* Centrar la cantidad */
+    text-align: center; /* Asegura el texto centrado */
+}
+.header-product, 
+.header-detail, 
+.header-actions {
+    display: flex; /* Usar flex para alinear contenido */
+    align-items: center; /* Centrar verticalmente */
+}
+.header-product {
+    justify-content: flex-start; /* Alinear a la izquierda */
+}
+.header-actions {
+    justify-content: flex-end; /* Alinear el botón de eliminar a la derecha */
+}
+
+
+/* Estilo para cada item del carrito */
+.cart-item {
+    display: grid;
+    /* Mismas columnas que el header para mantener la alineación */
+    grid-template-columns: 0.8fr 2fr 1fr 1fr 1fr 0.3fr; 
+    gap: 10px;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #f0f0f0; /* Separador entre ítems */
+}
+
+.cart-item:last-child {
+    border-bottom: none; /* Eliminar borde del último item para no duplicar */
+}
+
+.cart-item-image-col {
+    width: 80px;
+    height: 80px;
+    object-fit: cover; /* Asegura que la imagen no se distorsione */
+    border-radius: 5px;
+}
+
+.cart-item-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra verticalmente el contenido */
+}
+
+.cart-item-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 1.1em;
+    color: #333;
+}
+
+.cart-item-info {
+    font-size: 0.9em;
+    color: #777;
+    margin-bottom: 3px; /* Espacio entre líneas de info */
+}
+
+.cart-item-price, 
+.cart-item-subtotal {
+    text-align: right; /* Alinea el texto del precio a la derecha */
+    font-weight: bold;
+    color: #c00; /* Color distintivo para el precio */
+    white-space: nowrap; /* Evita que el precio se rompa en varias líneas */
+}
+
+/* Controles de cantidad dentro del carrito */
+.quantity-control-cart {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centrar los controles de cantidad */
+    gap: 5px;
+}
+
+.quantity-button-cart {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ccc;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    display: flex; /* Para centrar el - o + */
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s;
+    flex-shrink: 0; /* Evita que se encoja */
+}
+
+.quantity-button-cart:hover {
+    background-color: #e0e0e0;
+}
+
+.quantity-input-cart {
+    width: 40px;
+    padding: 5px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box; /* Incluye padding y borde en el ancho */
+}
+
+/* Botón para eliminar un solo item */
+.remove-item-button {
+    background: none;
+    border: none;
+    color: #c00; /* Color rojo para el botón de eliminar */
+    font-size: 1.5em; /* Tamaño del icono de la papelera */
+    cursor: pointer;
+    transition: color 0.2s;
+    display: flex; /* Para centrar la X */
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Ocupa el espacio disponible en su celda */
+}
+
+.remove-item-button:hover {
+    color: #ff0000;
+}
+
+/* Botón "Vaciar Carrito" */
+.clear-cart-button {
+    background-color: #dc3545; /* Rojo para "vaciar carrito" */
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 20px;
+    display: block; /* Ocupa su propia línea */
+    width: fit-content; /* Se ajusta al contenido del texto */
+    margin-left: auto; /* Alinea el botón a la derecha dentro de su contenedor */
+    transition: background-color 0.3s;
+}
+
+.clear-cart-button:hover {
+    background-color: #c82333;
+}
+
+/* Mensaje de carrito vacío */
+.empty-cart-message {
+    text-align: center;
+    padding: 50px 0;
+    font-size: 1.2em;
+    color: #666;
+}
+
+/* Resumen del Pedido */
+.summary-title {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.summary-line {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.summary-line.total {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #c00;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+    margin-top: 15px;
+}
+
+/* Botón "Confirmar Pedido" */
+.checkout-button {
+    background-color: #007bff; /* Azul para "Confirmar Pedido" */
+    color: #fff;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%; /* Ocupa todo el ancho disponible */
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.checkout-button:hover {
+    background-color: #0056b3;
+}
+
+/* Contenedor del botón de Mercado Pago */
+.mercado-pago-button-container {
+    margin-top: 15px;
+    text-align: center; /* Centra el botón que inyecta Mercado Pago */
+    /* Puedes añadir más estilos si el botón de MP no se ve bien por defecto */
+}
+
+/* Mensaje de notificación (producto eliminado, etc.) */
+.notification-message {
+    background-color: #d4edda; /* Verde claro para éxito */
+    color: #155724; /* Texto verde oscuro */
+    border: 1px solid #c3e6cb;
+    padding: 15px 20px;
+    border-radius: 5px;
+    position: fixed; /* Posición fija en la pantalla */
+    bottom: 20px; /* 20px desde abajo */
+    left: 50%; /* Centrado horizontalmente */
+    transform: translateX(-50%); /* Ajuste fino para centrar */
+    min-width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    opacity: 1;
+    transition: opacity 0.5s ease; /* Transición suave para aparecer/desaparecer */
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+}
+
+.notification-message.hidden {
+    opacity: 0;
+    pointer-events: none; /* Deshabilita interacciones cuando está oculto */
+}
+
+/* Estilo para mensajes de error, si los añades con type='error' */
+.notification-message.error {
+    background-color: #f8d7da; /* Rojo claro para error */
+    color: #721c24; /* Texto rojo oscuro */
+    border-color: #f5c6cb;
+}
+
+
+/* --- Media Queries para Responsividad del Carrito --- */
+@media (max-width: 992px) {
+    .cart-items-section,
+    .cart-summary-section {
+        min-width: unset; /* Elimina el min-width para que flexbox funcione mejor */
+        flex: 1 1 100%; /* Ocupa todo el ancho disponible */
+    }
+    .cart-page-container {
+        padding: 15px;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .cart-header-row,
+    .cart-item {
+        /* Simplificar columnas para móviles: Imagen, Detalles, Precio/Cantidad/Subtotal/Eliminar */
+        grid-template-columns: 80px 2fr 1.5fr; /* 3 columnas principales */
+        gap: 10px;
+        font-size: 0.85em;
+    }
+
+    .cart-item-image-col {
+        grid-row: span 2; /* Imagen ocupa dos filas */
+        width: 70px;
+        height: 70px;
+    }
+
+    .header-product {
+        display: none; /* Oculta el encabezado "PRODUCTOS" en móviles */
+    }
+    .cart-item-details {
+        grid-column: 2 / 4; /* Detalles ocupan el resto de la primera fila */
+        text-align: left;
+    }
+
+    .header-detail {
+        grid-column: 2 / 4;
+        text-align: left;
+    }
+
+    /* Redistribuir los elementos de la segunda fila en móviles */
+    .cart-item-price,
+    .cart-item-quantity,
+    .cart-item-subtotal,
+    .remove-item-button {
+        grid-row: 2; /* Todos en la segunda fila */
+        display: flex; /* Para poder alinearlos */
+        align-items: center;
+        justify-content: flex-start; /* Por defecto a la izquierda */
+        padding-top: 5px; /* Pequeño espacio para separarlos de la fila de arriba */
+    }
+
+    .header-price { grid-column: 1 / 2; text-align: left; }
+    .cart-item-price { grid-column: 1 / 2; text-align: left; }
+    
+    .header-quantity { grid-column: 2 / 3; justify-content: center; }
+    .quantity-control-cart { grid-column: 2 / 3; justify-content: center; }
+    .quantity-input-cart { width: 35px; }
+
+    .header-subtotal { grid-column: 3 / 4; text-align: right; }
+    .cart-item-subtotal { grid-column: 3 / 4; text-align: right; }
+
+    .header-actions { grid-column: 3 / 4; justify-content: flex-end; }
+    .remove-item-button { grid-column: 3 / 4; justify-content: flex-end; }
+
+    .clear-cart-button {
+        width: 100%;
+        margin-left: 0;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .cart-page-container {
+        padding: 10px;
+    }
+    .cart-item {
+        grid-template-columns: 60px 1fr; /* Más simple aún para pantallas muy pequeñas */
+        gap: 5px;
+    }
+    .cart-item-image-col {
+        width: 50px;
+        height: 50px;
+    }
+    .cart-item-details {
+        grid-column: 2 / 3;
+    }
+    .cart-item-info {
+        font-size: 0.8em;
+    }
+    .cart-item-title {
+        font-size: 1em;
+    }
+    /* Reajustar la segunda fila para que encaje mejor */
+    .cart-item-price,
+    .cart-item-quantity,
+    .cart-item-subtotal,
+    .remove-item-button {
+        grid-column: span 1; /* Cada uno en su propia celda de 2da fila */
+        padding-top: 0;
+    }
+    /* Estilos para el título del carrito en móviles */
+    .page-title {
+        font-size: 1.8em;
+    }
+    .summary-title {
+        font-size: 1.5em;
+    }
+    .summary-line {
+        font-size: 1em;
+    }
+}
+/*=======================*/
+/*notificaciones de pagos*/
+/*========================*/
+.payment-status-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  min-height: 100vh;
+  background-color: #f8f8f8;
+  text-align: center;
+}
+
+.payment-status-message {
+  max-width: 500px;
+  padding: 30px;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.payment-status-message.success {
+  border-left: 8px solid #4caf50;
+}
+
+.payment-status-message.pending {
+  border-left: 8px solid #ff9800;
+}
+
+.payment-status-message.error {
+  border-left: 8px solid #f44336;
+}
+
+.payment-status-message h1 {
+  margin-bottom: 15px;
+}
+
+.payment-status-message .btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 20px;
+  background-color: #222;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.3s;
+}
+
+.payment-status-message .btn:hover {
+  background-color: #444;
+}
