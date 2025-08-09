@@ -7,102 +7,108 @@
   <link rel="stylesheet" href="./assets/css/style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
 <body>
   <!-- NAV -->
   <header class="nav">
     <div class="nav-container">
-      <div class="logo">Entre Encajes</div>
+      <div class="logo">
+  <a href="index.html">
+    <img src="./assets/img/logo.jpeg" alt="Entre Encajes" class="logo-img">
+  </a>
+</div>
 
-      <button class="hamburguesa" id="btn-menu">☰</button>
 
-      <nav class="menu" id="menu">
-        <button class="cerrar-menu">✕</button>
-        
-        <ul>
-          <li><a href="#inicio">Inicio</a></li>
-          <li class="megadropdown">
-  <a href="#">Categorías ▾</a>
-  <div class="megamenú">
-    <!-- Columna 1 -->
-    <div class="columna">
-      <h4>Nueva colección</h4>
-      <ul>
-        <li><a href="#">Pijamas</a></li>
-        <li><a href="#">Ropa de cama</a></li>
-        <li><a href="#">Algodón</a></li>
-        <li><a href="#">Satinado Premium</a></li>
-        <li><a href="./pages/batas.html">Batas</a></li>
-        <li><a href="#">Temporadas pasadas</a></li>
-      </ul>
-    </div>
-    <!-- Columna 2 -->
-    <div class="columna">
-      <h4>Trajes de baño</h4>
-      <ul>
-        <li><a href="#">Arma tu conjunto</a></li>
-        <li><a href="#">Enterizas</a></li>
-        <li><a href="#">Corpiños</a></li>
-        <li><a href="#">Bombachas</a></li>
-        <li><a href="#">Línea kids</a></li>
-      </ul>
-    </div>
-    <!-- Columna 3 -->
-    <div class="columna">
-      <h4>Promociones</h4>
-      <ul>
-        <li><a href="#">Combos</a></li>
-        <li><a href="#">Ropa</a></li>
-        <li><a href="#">Bodies y corsets</a></li>
-        <li><a href="#">Pijamas</a></li>
-        <li><a href="#">Lencería</a></li>
-        <li><a href="#">Accesorios</a></li>
-      </ul>
-    </div>
-  </div>
-</li>
+<button class="hamburguesa" id="btn-menu">☰</button>
 
-          <li class="dropdown">
-            <a href="#">Productos ▾</a>
-            <ul class="submenu">
-              <li><a href="#">Nueva colección</a></li>
-              <li><a href="#">Pijamas</a></li>
-              <li><a href="#">Lencería</a></li>
-              <li><a href="#">Promociones</a></li>
-            </ul>
-          </li>
+<nav class="menu" id="menu">
+  <button class="cerrar-menu">✕</button>
 
-          <li class="dropdown">
-            <a href="#">Nosotras ▾</a>
-            <ul class="submenu">
-              <li><a href="#">Quiénes somos</a></li>
-              <li><a href="#">Dónde estamos</a></li>
-              <li><a href="#">Contacto</a></li>
-            </ul>
-          </li>
+  <ul>
+    <li><a href="#inicio">Inicio</a></li>
+    <li class="megadropdown">
+      <a href="#">Categorías ▾</a>
+      <div class="megamenú">
+        <!-- Columna 1 -->
+        <div class="columna">
+          <h4>Ropa Interior Femenina</h4>
+          <ul>
+            <li><a href="./pages/conjuntos-clasicos.html">Conjuntos Clásicos</a></li>
+            <li><a href="./pages/conjuntos-aro.html">Conjuntos con Aro / Push-Up</a></li>
+            <li><a href="./pages/estilo-bralette.html">Conjuntos sin Aro / Bralette</a></li>
+            <li><a href="./pages/deportivo-calvinklein.html">Conjuntos Deportivo</a></li>
+          </ul>
+        </div>
+        <!-- Columna 2 -->
+        <div class="columna">
+          <a href="./pages/niñas.html">
+            <h4>Ropa Interior Infantil</h4>
+          </a>
+          <ul>
+            <li><a href="./pages/bombacha-niña.html">Bombacha Nena</a></li>
+            <li><a href="./pages/niña-sport.html">Conjunto Niña Sport</a></li>
+            <li><a href="./pages/boxer-niño.html">Boxer Niño</a></li>
 
-          <li class="dropdown">
-            <a href="#">Preguntas frecuentes ▾</a>
-            <ul class="submenu">
-              <li><a href="#">Envíos</a></li>
-              <li><a href="#">Cambios</a></li>
-              <li><a href="#">Talles</a></li>
-              <li><a href="#">Cuidados</a></li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
+          </ul>
+         <a href="./pages/bombachas-colaless.html">
+          <h4>Bombacha y Colaless</h4>
+           </a>
+          <ul>
+            <li><a href="./pages/bombacha-universal.html">Bombacha Universal</a></li>
+            <li><a href="./pages/vedetinas.html">Vedetina</a></li>
+            <li><a href="./pages/culottes-encajes.html">Culottes de Encaje</a></li>
+          </ul>
+        </div>
+        <!-- Columna 3 -->
+        <div class="columna">
+          <a href="./pages/lenceria-masculina.html">
 
-      <div id="ver-carrito" class="acciones">
-        <input type="text" placeholder="Buscar..." class="buscador">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-check-fill" viewBox="0 0 16 16">
-  <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m-1.646-7.646-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L8 8.293l2.646-2.647a.5.5 0 0 1 .708.708"/>
-</svg>
+            <h4>Lencería Masculina</h4>
+          </a>
+          <ul>
+            <li><a href="./pages/boxer-adulto.html">Boxer Uomo Adulto</a></li>
+            <li><a href="./pages/slip-adulto.html">Slip Adulto</a></li>
+          </ul>
+           <a href="./pages/medias-soquetes.html">
+             <h4>Medias y Soquetes</h4>
+           </a>
+          <ul>
+            <li><a href="./pages/soquetes.html">Soquetes</a></li>
+            <li><a href="./pages/medias.html">Medias</a></li>
+          </ul>
+
+          
+         <a href="./pages/pijamas.html">
+           <h4>Pijama</h4>
+          </a>
+          <ul>
+            <li><a href="./pages/pijama-osito.html">Pijama Osito</a></li>
+          </ul>
+        </div>
       </div>
+    </li>
+
+    <li class="dropdown">
+      <a href="./pages/contacto.html">Contacto</a>
+    </li>
+
+    <li class="dropdown">
+      <a href="./pages/preguntas.html">Preguntas frecuentes</a>
+    </li>
+  </ul>
+</nav>
+
+<div id="ver-carrito" class="acciones">
+
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-check-fill" viewBox="0 0 16 16">
+    <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m-1.646-7.646-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L8 8.293l2.646-2.647a.5.5 0 0 1 .708.708"/>
+  </svg>
     </div>
   </header>
 
-  <!-- HERO -->
+  <!-- HERO BANERS-->
   <section id="inicio" class="hero">
     <h1>Descubrí tu estilo con Entre Encajes</h1>
     <p>Lencería pensada para vos</p>
@@ -110,21 +116,21 @@
 
   <section class="destacados">
   <div class="banner">
-    <a href="#">
-      <img src="./assets/img/pexels-sonia-ribeiro-1330899216-30444027.jpg" alt="Pijamas">
+    <a href="./pages/pijamas.html">
+      <img src="./assets/img/art1021.3.jpeg" alt="Pijamas">
       <div class="texto">PIJAMAS</div>
     </a>
   </div>
   <div class="banner">
-    <a href="#">
-      <img src="./assets/img/pexels-75707588-9148737.jpg" alt="Batas">
-      <div class="texto">BATAS</div>
+    <a href="./pages/conjuntos-clasicos.html">
+      <img src="./assets/img/conjunto-clasicos.jpg" alt="Conjuntos Clásicos">
+      <div class="texto">CONJUNTOS CLÁSICOS</div>
     </a>
   </div>
   <div class="banner">
     <a href="#">
-      <img src="./assets/img/pexels-joseluisphottographer-2646852.jpg" alt="Trajes de baño">
-      <div class="texto">TRAJES DE BAÑO</div>
+      <img src="./assets/img/conjunto-deportivo.jpg" alt="Conjutos deportivos">
+      <div class="texto">CONJUNTOS DEPORTIVOS</div>
     </a>
   </div>
 </section>
@@ -134,48 +140,34 @@
   <h2>Categorías Destacadas</h2>
   <div class="grid-categorias">
     <div class="categoria-card">
-      <img src="./assets/img/otoño-invierno.jpg" alt="Otoño Invierno">
-      <div class="texto">OTOÑO|VERANO</div>
+      <a href="./pages/niñas.html">
+        <img  src="./assets/img/ropa-ifantil.jpg"  alt="Otoño Interior Infantil" >
+        <div class="texto">ROPA INTERIOR INFANTIL</div>
+      </a>
     </div>
     <div class="categoria-card">
-      <img src="./assets/img/ropa_interior.jpg" alt="Otoño Invierno">
-      <div class="texto">ROPA INTERIOR</div>
+      <a href="./pages/lenceria-masculina.html">
+        <img src="./assets/img/lenceria-masculina.jpg" alt="Ropa Interior Masculina">
+        <div class="texto">ROPA INTERIOR MASCULINA</div>
+      </a>
     </div>
     <div class="categoria-card">
-      <img src="./assets/img/oferta.jpg" alt="Otoño Invierno">
-      <div class="texto">OFERTAS</div>
+      <a href="./pages/medias-soquetes.html">
+        <img src="./assets/img/medias-soquetes.jpg" alt="Medias y Soquetes">
+        <div class="texto">MEDIAS Y SOQUETES</div>
+      </a>
     </div>
     <!-- Repetí esta tarjeta por cada categoría -->
   </div>
 </section>
 
-
-
-  <!-- CATÁLOGO -->
-  <section id="productos" class="catalogo">
-    <h2>Nuestros productos</h2>
-    <div class="productos">
-      <!-- Producto ejemplo -->
-      <div class="producto">
-        <img src="https://via.placeholder.com/200" alt="Producto 1">
-        <h3>Conjunto Rosa</h3>
-        <p>$4500</p>
-        <!-- Botón de pago con Mercado Pago -->
-        <script src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js"
-          data-preference-id="TU_ID_DE_PREFERENCIA"
-          data-source="button">
-        </script>
-      </div>
-      <!-- Más productos... -->
-    </div>
-  </section>
-
+<!--Sección Instagram-->
   <section class="instagram-section">
     <h2>Seguinos en Instagram</h2>
     <div class="swiper instagram-swiper">
       <div class="swiper-wrapper">
         <div class="swiper-slide">
-          <a href="https://www.instagram.com/tu_cuenta/" target="_blank" class="insta-item">
+          <a href="https://www.instagram.com/p/DK0JBz6O8p1/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="insta-item">
             <img src="./assets/img/instagram-1.JPG" alt="Instagram 1">
             <div class="overlay">
               <img src="./assets/img/logo-instagram.png" alt="Instagram">
@@ -183,7 +175,7 @@
           </a>
         </div>
         <div class="swiper-slide">
-          <a href="https://www.instagram.com/tu_cuenta/" target="_blank" class="insta-item">
+          <a href="https://www.instagram.com/p/DK0JBz6O8p1/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="insta-item">
             <img src="./assets/img/instagram-2.JPG" alt="Instagram 2">
             <div class="overlay">
               <img src="./assets/img/logo-instagram.png" alt="Instagram">
@@ -191,56 +183,81 @@
           </a>
         </div>
         <div class="swiper-slide">
-          <a href="https://www.instagram.com/p/DK0JBz6O8p1/?img_index=2" target="_blank" class="insta-item">
-            <img src="./assets/img/instagram-3.JPG" alt="Instagram 2">
+          <a href="https://www.instagram.com/p/DK0jiqQthHY/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="insta-item">
+            <img src="./assets/img/instagram-3.JPG" alt="Instagram 3">
             <div class="overlay">
               <img src="./assets/img/logo-instagram.png" alt="Instagram">
             </div>
           </a>
         </div>
         <div class="swiper-slide">
-          <a href="https://www.instagram.com/tu_cuenta/" target="_blank" class="insta-item">
-            <img src="./assets/img/instagram-4.jpg" alt="Instagram 2">
+          <a href="https://www.instagram.com/p/DL3UnmDutlr/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="insta-item">
+            <img src="./assets/img/instagram-4.jpg" alt="Instagram 4">
             <div class="overlay">
               <img src="./assets/img/logo-instagram.png" alt="Instagram">
             </div>
           </a>
         </div>
         <div class="swiper-slide">
-          <a href="https://www.instagram.com/tu_cuenta/" target="_blank" class="insta-item">
-            <img src="./assets/img/instagram-5.jpg" alt="Instagram 2">
+          <a href="https://www.instagram.com/reel/DL35BOsNlel/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==/" target="_blank" class="insta-item">
+            <img src="./assets/img/instagram-5.jpg" alt="Instagram 5">
             <div class="overlay">
               <img src="./assets/img/logo-instagram.png" alt="Instagram">
             </div>
           </a>
         </div>
         <div class="swiper-slide">
-          <a href="https://www.instagram.com/tu_cuenta/" target="_blank" class="insta-item">
-            <img src="./assets/img/instagram-6.jpg" alt="Instagram 2">
+          <a href="https://www.instagram.com/reel/DL36jOONV4L/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="insta-item">
+            <img src="./assets/img/instagram-6.jpg" alt="Instagram 6">
             <div class="overlay">
               <img src="./assets/img/logo-instagram.png" alt="Instagram">
             </div>
           </a>
         </div>
         <div class="swiper-slide">
-          <a href="https://www.instagram.com/tu_cuenta/" target="_blank" class="insta-item">
-            <img src="./assets/img/instagram-7.jpg" alt="Instagram 2">
+          <a href="https://www.instagram.com/reel/DL4_P0HuErl/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==/" target="_blank" class="insta-item">
+            <img src="./assets/img/instagram-7.jpg" alt="Instagram 7">
             <div class="overlay">
               <img src="./assets/img/logo-instagram.png" alt="Instagram">
             </div>
           </a>
         </div>
         <div class="swiper-slide">
-          <a href="https://www.instagram.com/tu_cuenta/" target="_blank" class="insta-item">
-            <img src="./assets/img/instagram-8.jpg" alt="Instagram 2">
+          <a href="https://www.instagram.com/reel/DL57xVouvN2/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="insta-item">
+            <img src="./assets/img/instagram-8.jpg" alt="Instagram 8">
             <div class="overlay">
               <img src="./assets/img/logo-instagram.png" alt="Instagram">
             </div>
           </a>
         </div>
         <div class="swiper-slide">
-          <a href="https://www.instagram.com/tu_cuenta/" target="_blank" class="insta-item">
-            <img src="./assets/img/instagram-9.jpg" alt="Instagram 2">
+          <a href="https://www.instagram.com/p/DMHGXsrN4fC/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="insta-item">
+            <img src="./assets/img/instagram-9.jpg" alt="Instagram 9">
+            <div class="overlay">
+              <img src="./assets/img/logo-instagram.png" alt="Instagram">
+            </div>
+          </a>
+        </div>
+         <div class="swiper-slide">
+          <a href="https://www.instagram.com/p/DMLeJsDOdx8/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="insta-item">
+            <img src="./assets/img/instagram-10.jpg" alt="Instagram 10">
+            <div class="overlay">
+              <img src="./assets/img/logo-instagram.png" alt="Instagram">
+            </div>
+          </a>
+        </div>
+         <div class="swiper-slide">
+          <a href="https://www.instagram.com/reel/DMfeP4wuHpL/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="insta-item">
+            <img src="./assets/img/instagram-11.jpg" alt="Instagram 11">
+            <div class="overlay">
+              <img src="./assets/img/logo-instagram.png" alt="Instagram">
+            </div>
+          </a>
+        </div>
+    
+           <div class="swiper-slide">
+          <a href="https://www.instagram.com/reel/DMjA4y-ud5r/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" class="insta-item">
+            <img src="./assets/img/instagram-13.jpg" alt="Instagram 13">
             <div class="overlay">
               <img src="./assets/img/logo-instagram.png" alt="Instagram">
             </div>
@@ -251,58 +268,47 @@
     </div>
   </section>
   
-  
-  <footer class="footer">
-    <div class="footer-container">
-      <div class="footer-logo">
-        <h2>Entre Encajes</h2>
-        <p>Lencería con estilo, comodidad y elegancia.</p>
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-logo">
+      <h2>Entre Encajes</h2>
+      <p>Lencería con estilo, comodidad y elegancia.</p>
+    </div>
+
+    <div class="footer-links">
+      <div>
+        <h3>Explorá</h3>
+        <ul>
+          <li><a href="index.html">Inicio</a></li> 
+          <li><a href="./pages/contacto.html">Contacto</a></li>
+        </ul>
       </div>
-  
-      <div class="footer-links">
-        <div>
-          <h3>Explorá</h3>
-          <ul>
-            <li><a href="#">Inicio</a></li>
-            <li><a href="#">Tienda</a></li>
-            <li><a href="#">Sobre nosotras</a></li>
-            <li><a href="#">Contacto</a></li>
-          </ul>
-        </div>
-  
-        <div>
-          <h3>Ayuda</h3>
-          <ul>
-            <li><a href="#">Preguntas Frecuentes</a></li>
-            <li><a href="#">Envíos</a></li>
-            <li><a href="#">Devoluciones</a></li>
-            <li><a href="#">Guía de talles</a></li>
-          </ul>
-        </div>
-  
-        <div>
-          <h3>Redes</h3>
-          <ul class="social-links">
-            <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
-            <li><a href="#"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
-          </ul>
-        </div>
+
+      <div>
+        <h3>Ayuda</h3>
+        <ul>
+          <li><a href="./pages/preguntas.html">Preguntas Frecuentes</a></li>
+        </ul>
       </div>
-  
-      <div class="footer-newsletter">
-        <h3>Suscribite</h3>
-        <p>Recibí novedades y promos exclusivas</p>
-        <form>
-          <input type="email" placeholder="Tu email">
-          <button type="submit">Suscribirme</button>
-        </form>
+
+      <div>
+        <h3>Redes</h3>
+        <ul class="social-links">
+          <li><a href="https://www.instagram.com/lenceria.entreencajes?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i> Instagram</a></li>
+          <li><a href="https://wa.me/5492613611534?text=Hola!%20Tengo%20una%20consulta%20sobre%20sus%20productos." target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+        </ul>
       </div>
     </div>
-  
-    <div class="footer-bottom">
-      <p>© 2025 Entre Encajes. Todos los derechos reservados.</p>
-    </div>
-  </footer>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2025 Entre Encajes. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+<script src="https://kit.fontawesome.com/your-font-awesome-kit-code.js" crossorigin="anonymous"></script>
+
+
   
   <!-- CARRITO -->
   <div id="carrito" class="carrito oculto">
