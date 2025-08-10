@@ -221,8 +221,7 @@
 <script src="https://kit.fontawesome.com/your-font-awesome-kit-code.js" crossorigin="anonymous"></script>
 
 
-  
-  <!-- CARRITO -->
+<!-- CARRITO -->
   <div id="carrito" class="carrito oculto">
     <h2>Tu carrito</h2>
     <ul id="lista-carrito"></ul>
@@ -300,52 +299,5 @@
     }
   });
 </script>
-
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const btnMenu = document.getElementById("btn-menu");
-    const menu = document.getElementById("menu");
-
-    // Botón de hamburguesa
-    btnMenu.addEventListener("click", () => {
-      menu.classList.toggle("menu-activo");
-    });
-
-    // Cerrar menú desde botón
-    document.addEventListener("click", function (e) {
-      if (e.target.classList.contains("cerrar-menu")) {
-        menu.classList.remove("menu-activo");
-      }
-    });
-
-    // Submenús como acordeón en móvil
-    document.querySelectorAll('.menu li.dropdown > a, .menu li.megadropdown > a').forEach(link => {
-      link.addEventListener('click', e => {
-        if (window.innerWidth <= 768) {
-          e.preventDefault();
-          const parent = link.parentElement;
-
-          // Cerrar otros
-          document.querySelectorAll('.menu li.abierto').forEach(el => {
-            if (el !== parent) el.classList.remove('abierto');
-          });
-
-          parent.classList.toggle('abierto');
-        }
-      });
-    });
-
-    // CARRITO (opcional)
-    const verCarrito = document.getElementById("ver-carrito");
-    const carrito = document.getElementById("carrito");
-
-    if (verCarrito && carrito) {
-      verCarrito.addEventListener("click", () => {
-        carrito.style.display = carrito.style.display === "block" ? "none" : "block";
-      });
-    }
-  });
-</script>
-
 </body>
 </html>

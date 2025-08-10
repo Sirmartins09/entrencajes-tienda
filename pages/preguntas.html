@@ -223,7 +223,24 @@
 
     <script src="../js/main.js"></script>
     <script src="https://kit.fontawesome.com/your-font-awesome-kit-code.js" crossorigin="anonymous"></script>
-  
+  <script>// --- Lógica para el Acordeón de Preguntas Frecuentes ---
+const faqItems = document.querySelectorAll('.faq-item');
+
+faqItems.forEach(item => {
+    const question = item.querySelector('.question');
+    if (question) {
+        question.addEventListener('click', () => {
+            // Cierra las demás preguntas
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item) {
+                    otherItem.classList.remove('active');
+                }
+            });
+            // Abre o cierra la pregunta actual
+            item.classList.toggle('active');
+        });
+    }
+});</script>
   <script>
   document.addEventListener("DOMContentLoaded", () => {
     const btnMenu = document.getElementById("btn-menu");
@@ -231,43 +248,65 @@
 
     // Botón de hamburguesa
     btnMenu.addEventListener("click", () => {
-      menu.classList.toggle("menu-activo");
+        menu.classList.toggle("menu-activo");
     });
 
     // Cerrar menú desde botón
     document.addEventListener("click", function (e) {
-      if (e.target.classList.contains("cerrar-menu")) {
-        menu.classList.remove("menu-activo");
-      }
+        if (e.target.classList.contains("cerrar-menu")) {
+            menu.classList.remove("menu-activo");
+        }
     });
 
     // Submenús como acordeón en móvil
     document.querySelectorAll('.menu li.dropdown > a, .menu li.megadropdown > a').forEach(link => {
-      link.addEventListener('click', e => {
-        if (window.innerWidth <= 768) {
-          e.preventDefault();
-          const parent = link.parentElement;
+        link.addEventListener('click', e => {
+            if (window.innerWidth <= 768) {
+                // *** AQUÍ ESTÁ LA CORRECCIÓN ***
+                // Previene la acción por defecto solo si el enlace no tiene un href válido
+                if (link.getAttribute('href') === '#' || link.getAttribute('href') === '') {
+                    e.preventDefault();
+                } else {
+                    // Si el enlace tiene un href real, cierra el menú
+                    menu.classList.remove("menu-activo");
+                    return;
+                }
+                
+                const parent = link.parentElement;
 
-          // Cerrar otros
-          document.querySelectorAll('.menu li.abierto').forEach(el => {
-            if (el !== parent) el.classList.remove('abierto');
-          });
+                // Cerrar otros
+                document.querySelectorAll('.menu li.abierto').forEach(el => {
+                    if (el !== parent) el.classList.remove('abierto');
+                });
 
-          parent.classList.toggle('abierto');
-        }
-      });
+                parent.classList.toggle('abierto');
+            }
+        });
     });
 
-    // CARRITO (opcional)
+    // Cierra el menú si se hace clic en cualquier enlace del menú
+    document.querySelectorAll('#menu a').forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth <= 768) {
+                // Retrasa el cierre para dar tiempo al navegador a seguir el enlace
+                setTimeout(() => {
+                     menu.classList.remove("menu-activo");
+                }, 100);
+            }
+        });
+    });
+
+    // Lógica adicional para el carrito (si es necesario)
     const verCarrito = document.getElementById("ver-carrito");
     const carrito = document.getElementById("carrito");
 
     if (verCarrito && carrito) {
-      verCarrito.addEventListener("click", () => {
-        carrito.style.display = carrito.style.display === "block" ? "none" : "block";
-      });
+        verCarrito.addEventListener("click", (e) => {
+             e.preventDefault();
+             carrito.style.display = carrito.style.display === "block" ? "none" : "block";
+        });
     }
-  });
+});
 </script>
 
   </body>

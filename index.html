@@ -9,7 +9,6 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <!-- Metaetiquetas básicas -->
-
   <meta name="description" content="Descubrí lencería de calidad, estilo y comodidad para todas las edades y géneros. Conjuntos, pijamas, medias y más. ¡Explorá nuestra tienda online!">
   <meta name="keywords" content="lencería femenina, lencería infantil, lencería masculina, conjuntos de lencería, medias femeninas, pijamas, ropa interior cómoda, moda íntima, Entre Encajes, tienda de lencería online, ropa interior de calidad, encajes, ropa íntima para mujeres, ropa íntima para niños, ropa íntima para hombres">
   <meta name="robots" content="index, follow">
@@ -141,7 +140,7 @@
     </a>
   </div>
   <div class="banner">
-    <a href="#">
+    <a href="./pages/conjunto-deportivos.html">
       <img src="./assets/img/conjunto-deportivo.jpg" alt="Conjutos deportivos">
       <div class="texto">CONJUNTOS DEPORTIVOS</div>
     </a>
@@ -323,14 +322,6 @@
 
 
   
-  <!-- CARRITO -->
-  <div id="carrito" class="carrito oculto">
-    <h2>Tu carrito</h2>
-    <ul id="lista-carrito"></ul>
-    <p>Total: $<span id="total">0</span></p>
-    <button id="comprar">Finalizar compra</button>
-  </div>
-
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     const btnMenu = document.getElementById("btn-menu");
@@ -338,43 +329,65 @@
 
     // Botón de hamburguesa
     btnMenu.addEventListener("click", () => {
-      menu.classList.toggle("menu-activo");
+        menu.classList.toggle("menu-activo");
     });
 
     // Cerrar menú desde botón
     document.addEventListener("click", function (e) {
-      if (e.target.classList.contains("cerrar-menu")) {
-        menu.classList.remove("menu-activo");
-      }
+        if (e.target.classList.contains("cerrar-menu")) {
+            menu.classList.remove("menu-activo");
+        }
     });
 
     // Submenús como acordeón en móvil
     document.querySelectorAll('.menu li.dropdown > a, .menu li.megadropdown > a').forEach(link => {
-      link.addEventListener('click', e => {
-        if (window.innerWidth <= 768) {
-          e.preventDefault();
-          const parent = link.parentElement;
+        link.addEventListener('click', e => {
+            if (window.innerWidth <= 768) {
+                // *** AQUÍ ESTÁ LA CORRECCIÓN ***
+                // Previene la acción por defecto solo si el enlace no tiene un href válido
+                if (link.getAttribute('href') === '#' || link.getAttribute('href') === '') {
+                    e.preventDefault();
+                } else {
+                    // Si el enlace tiene un href real, cierra el menú
+                    menu.classList.remove("menu-activo");
+                    return;
+                }
+                
+                const parent = link.parentElement;
 
-          // Cerrar otros
-          document.querySelectorAll('.menu li.abierto').forEach(el => {
-            if (el !== parent) el.classList.remove('abierto');
-          });
+                // Cerrar otros
+                document.querySelectorAll('.menu li.abierto').forEach(el => {
+                    if (el !== parent) el.classList.remove('abierto');
+                });
 
-          parent.classList.toggle('abierto');
-        }
-      });
+                parent.classList.toggle('abierto');
+            }
+        });
     });
 
-    // CARRITO (opcional)
+    // Cierra el menú si se hace clic en cualquier enlace del menú
+    document.querySelectorAll('#menu a').forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth <= 768) {
+                // Retrasa el cierre para dar tiempo al navegador a seguir el enlace
+                setTimeout(() => {
+                     menu.classList.remove("menu-activo");
+                }, 100);
+            }
+        });
+    });
+
+    // Lógica adicional para el carrito (si es necesario)
     const verCarrito = document.getElementById("ver-carrito");
     const carrito = document.getElementById("carrito");
 
     if (verCarrito && carrito) {
-      verCarrito.addEventListener("click", () => {
-        carrito.style.display = carrito.style.display === "block" ? "none" : "block";
-      });
+        verCarrito.addEventListener("click", (e) => {
+             e.preventDefault();
+             carrito.style.display = carrito.style.display === "block" ? "none" : "block";
+        });
     }
-  });
+});
 </script>
 
 <!-- Swiper JS -->
