@@ -1,72 +1,38 @@
-document.addEventListener('DOMContentLoaded', () => {
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    const cartContainer = document.getElementById('cart-container');
-    const totalContainer = document.getElementById('total-container');
+document.addEventListener("DOMContentLoaded", () => {
+    const botones = document.querySelectorAll(".add-to-cart");
 
-    function renderCart() {
-        cartContainer.innerHTML = '';
-        let total = 0;
+    botones.forEach(boton => {
+        boton.addEventListener("click", () => {
+            const id = boton.dataset.id;
+            const name = boton.dataset.name;
+            const price = parseFloat(boton.dataset.price);
+            const image = boton.dataset.image;
 
-        if (cart.length === 0) {
-            cartContainer.innerHTML = '<p>🛒 Tu carrito está vacío.</p>';
-            totalContainer.textContent = '';
-            return;
-        }
+            // Talle y color
+            const size = boton.parentElement.querySelector(".product-size")?.value || "";
+            const color = boton.parentElement.querySelector(".product-color")?.value || "";
 
-        cart.forEach((item, index) => {
-            const subtotal = item.price * item.quantity;
-            total += subtotal;
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-            const div = document.createElement('div');
-            div.classList.add('cart-item');
-            div.innerHTML = `
-                <img src="${item.image}" alt="${item.title}" width="80">
-                <div>
-                    <h4>${item.title}</h4>
-                    <p>Talle: ${item.size} | Color: ${item.color}</p>
-                    <p>Precio: $${item.price.toFixed(2)}</p>
-                    <p>
-                        Cantidad: 
-                        <button class="decrease" data-index="${index}">-</button>
-                        ${item.quantity}
-                        <button class="increase" data-index="${index}">+</button>
-                    </p>
-                    <p>Subtotal: $${subtotal.toFixed(2)}</p>
-                    <button class="remove" data-index="${index}">❌ Eliminar</button>
-                </div>
-            `;
-            cartContainer.appendChild(div);
+            // Verificar si el producto ya existe con mismo talle y color
+            const existingProduct = cart.find(item => item.id === id && item.size === size && item.color === color);
+
+            if (existingProduct) {
+                existingProduct.quantity += 1;
+            } else {
+                cart.push({
+                    id,
+                    name,
+                    price,
+                    image,
+                    size,
+                    color,
+                    quantity: 1
+                });
+            }
+
+            localStorage.setItem("cart", JSON.stringify(cart));
+            alert("Producto agregado al carrito ✅");
         });
-
-        totalContainer.textContent = `Total: $${total.toFixed(2)}`;
-
-        // 📌 Eventos para botones
-        document.querySelectorAll('.increase').forEach(btn => {
-            btn.addEventListener('click', () => {
-                cart[btn.dataset.index].quantity++;
-                localStorage.setItem('cart', JSON.stringify(cart));
-                renderCart();
-            });
-        });
-
-        document.querySelectorAll('.decrease').forEach(btn => {
-            btn.addEventListener('click', () => {
-                if (cart[btn.dataset.index].quantity > 1) {
-                    cart[btn.dataset.index].quantity--;
-                }
-                localStorage.setItem('cart', JSON.stringify(cart));
-                renderCart();
-            });
-        });
-
-        document.querySelectorAll('.remove').forEach(btn => {
-            btn.addEventListener('click', () => {
-                cart.splice(btn.dataset.index, 1);
-                localStorage.setItem('cart', JSON.stringify(cart));
-                renderCart();
-            });
-        });
-    }
-
-    renderCart();
+    });
 });
