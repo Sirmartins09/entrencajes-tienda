@@ -33,6 +33,28 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentImageIndex = 0;
     let selectedSize = '';
 
+    // --- DICCIONARIO DE COLORES EN CASTELLANO ---
+    const coloresCastellano = {
+        red: "Rojo",
+        black: "Negro",
+        white: "Blanco",
+        blue: "Azul",
+        pink: "Rosa",
+        beige: "Beige",
+        green: "Verde",
+        yellow: "Amarillo",
+        purple: "Violeta",
+        grey: "Gris",
+        gray: "Gris",
+        brown: "Marrón",
+        fuchsia: "Fucsia",
+        sky: "Celeste",
+        gold: "Dorado",
+        teal: "Verde azulado",
+        nude: "Nude",
+        petroleo: "Petróleo"
+    };
+
     // --- GALERÍA DE IMÁGENES ---
     function updateMainImage() {
         if (!mainProductImage || currentImages.length === 0) return;
@@ -101,6 +123,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const id = `prod-${name.replace(/\s+/g, '-').toLowerCase()}-${selectedColor}-${selectedSize}`;
         const existingItem = cart.find(item => item.id === id);
 
+        const colorCastellano = coloresCastellano[selectedColor] || selectedColor;
+
         if (existingItem) {
             existingItem.quantity += quantity;
         } else {
@@ -109,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 name,
                 price,
                 quantity,
-                color: selectedColor,
+                color: colorCastellano,
                 size: selectedSize,
                 image: mainProductImage?.src || '',
                 article

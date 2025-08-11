@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
 <body>
-
- <!-- NAV -->
+<!-- NAV -->
 <header class="nav">
     <div class="nav-container">
         <!-- Logo -->
@@ -19,16 +19,13 @@
                 <img src="../assets/img/logo.jpeg" alt="Entre Encajes" class="logo-img">
             </a>
         </div>
-
         <!-- Botón hamburguesa -->
         <button class="hamburguesa" id="btn-menu">☰</button>
-
         <!-- Menú -->
         <nav class="menu" id="menu">
             <button class="cerrar-menu">✕</button>
             <ul>
                 <li><a href="../index.html">Inicio</a></li>
-
                 <!-- Categorías -->
                 <li class="megadropdown">
                     <a href="">Categorías ▾</a>
@@ -74,26 +71,22 @@
                         </div>
                     </div>
                 </li>
-
                 <li><a href="../pages/contacto.html">Contacto</a></li>
                 <li><a href="../pages/preguntas.html">Preguntas Frecuentes</a></li>
-
-<!-- Carrito en mobile -->
-<li class="cart-mobile-item">
-    <a href="../pages/carrito.html" class="cart-icon-link">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-            class="bi bi-cart-check-fill" viewBox="0 0 16 16">
-            <path
-                d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m-1.646-7.646-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L8 8.293l2.646-2.647a.5.5 0 0 1 .708.708" />
-        </svg>
-        Carrito
-        <span id="cart-count-mobile" class="cart-count hidden">0</span>
-    </a>
-</li>
-
+                <!-- Carrito en mobile -->
+                <li class="cart-mobile-item">
+                    <a href="../pages/carrito.html" class="cart-icon-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                            class="bi bi-cart-check-fill" viewBox="0 0 16 16">
+                            <path
+                                d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m-1.646-7.646-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L8 8.293l2.646-2.647a.5.5 0 0 1 .708.708" />
+                        </svg>
+                        Carrito
+                        <span id="cart-count-mobile" class="cart-count hidden">0</span>
+                    </a>
+                </li>
             </ul>
         </nav>
-
         <!-- Carrito en desktop -->
         <a href="../pages/carrito.html" id="ver-carrito" class="acciones cart-desktop-link">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cart-check-fill" viewBox="0 0 16 16">
@@ -104,44 +97,33 @@
     </div>
 </header>
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tu Carrito de Compras</title>
-    <link rel="stylesheet" href="style.css"> </head>
-<body>
+<header class="cart-header">
+    <h1>🛒 Mi Carrito de Compras</h1>
+</header>
 
-    <header class="cart-header">
-        <h1>🛒 Mi Carrito de Compras</h1>
-    </header>
-
-    <main class="cart-container">
-        <section class="cart-items">
-            </section>
-
-        <section class="cart-summary">
-            <h2>Resumen del Pedido</h2>
-            <div class="summary-details">
-                <div class="subtotal-container">
-                    <span>Subtotal:</span>
-                    <span id="subtotal-price">$ 0.00</span>
-                </div>
-                <div class="total-container">
-                    <h3>Total:</h3>
-                    <h3 id="total-price">$ 0.00</h3>
-                </div>
+<main class="cart-container">
+    <section class="cart-items">
+        <div id="cart-items-list"></div>
+    </section>
+    <section class="cart-summary">
+        <h2>Resumen del Pedido</h2>
+        <div class="summary-details">
+            <div class="subtotal-container">
+                <span>Subtotal:</span>
+                <span id="cart-subtotal-display">$ 0.00</span>
             </div>
-            <div class="cart-actions">
-                <button id="continue-shopping-btn" class="continue-shopping-btn">🛍️ Seguir Comprando</button>
-                <button id="checkout-btn" class="checkout-btn">Finalizar Compra</button>
+            <div class="total-container">
+                <h3>Total:</h3>
+                <h3 id="cart-total-display">$ 0.00</h3>
             </div>
-        </section>
-    </main>
+        </div>
+        <div class="cart-actions">
+            <button id="clear-cart-button" class="continue-shopping-btn">Vaciar carrito</button>
+            <button id="checkout-button" class="checkout-button">Finalizar compra</button>
 
-    <script src="../js/cards.js"></script> </body>
-</html>
+        </div>
+    </section>
+</main>
 
 <!--FOOTER-->
 <footer class="footer">
@@ -150,7 +132,6 @@
       <h2>Entre Encajes</h2>
       <p>Lencería con estilo, comodidad y elegancia.</p>
     </div>
-
     <div class="footer-links">
       <div>
         <h3>Explorá</h3>
@@ -159,14 +140,12 @@
           <li><a href="../pages/contacto.html">Contacto</a></li>
         </ul>
       </div>
-
       <div>
         <h3>Ayuda</h3>
         <ul>
           <li><a href="../pages/preguntas.html">Preguntas Frecuentes</a></li>
         </ul>
       </div>
-
       <div>
         <h3>Redes</h3>
         <ul class="social-links">
@@ -176,17 +155,16 @@
       </div>
     </div>
   </div>
-
   <div class="footer-bottom">
     <p>© 2025 Entre Encajes. Todos los derechos reservados.</p>
   </div>
 </footer>
-    <script src="../js/main.js"></script>
-    <script src="../assets/js/contact-form.js"></script>
-    <script src="https://kit.fontawesome.com/your-font-awesome-kit-code.js" crossorigin="anonymous"></script>
 
-
-  <script src="https://sdk.mercadopago.com/js/v2"></script>
+<!-- SCRIPTS -->
+<script src="../js/main.js"></script>
+<script src="../assets/js/contact-form.js"></script>
+<script src="https://kit.fontawesome.com/your-font-awesome-kit-code.js" crossorigin="anonymous"></script>
+<script src="https://sdk.mercadopago.com/js/v2"></script>
 
   <script>
 document.addEventListener("DOMContentLoaded", () => {
@@ -284,5 +262,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 </script>
+
+    <script src="../js/cards.js"></script> </body>
 </body>
 </html>
