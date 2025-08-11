@@ -400,7 +400,7 @@ body {
     }
     .cart-mobile-item
 
-
+}
 
 
 /* Buscador */
@@ -2749,6 +2749,6 @@ body {
 }
 
 @keyframes fadeOut {
- from { bottom: 20px; opacity: 1; }
+    from { bottom: 20px; opacity: 1; }
     to { bottom: -50px; opacity: 0; }
 }
