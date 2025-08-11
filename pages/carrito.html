@@ -5,154 +5,145 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrito de Compras - Entre Encajes</title>
     <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <body>
 
  <!-- NAV -->
-  <header class="nav">
+<header class="nav">
     <div class="nav-container">
-      <div class="logo">
-  <a href="../index.html">
-    <img src="../assets/img/logo.jpeg" alt="Entre Encajes" class="logo-img">
-  </a>
-</div>
-
-
-<button class="hamburguesa" id="btn-menu">☰</button>
-
-<nav class="menu" id="menu">
-  <button class="cerrar-menu">✕</button>
-
-  <ul>
-    <li><a href="../index.html">Inicio</a></li>
-    <li class="megadropdown">
-      <a href="#">Categorías ▾</a>
-      <div class="megamenú">
-        <!-- Columna 1 -->
-        <div class="columna">
-          <h4>Ropa Interior Femenina</h4>
-          <ul>
-            <li><a href="../pages/conjuntos-clasicos.html">Conjuntos Clásicos</a></li>
-            <li><a href="../pages/conjuntos-aro.html">Conjuntos con Aro / Push-Up</a></li>
-            <li><a href="../pages/estilo-bralette.html">Conjuntos sin Aro / Bralette</a></li>
-            <li><a href="../pages/deportivo-calvinklein.html">Conjuntos Deportivo</a></li>
-          </ul>
-        </div>
-        <!-- Columna 2 -->
-        <div class="columna">
-          <a href="../pages/niñas.html">
-            <h4>Ropa Interior Infantil</h4>
-          </a>
-          <ul>
-            <li><a href="../pages/bombacha-niña.html">Bombacha Nena</a></li>
-            <li><a href="../pages/niña-sport.html">Conjunto Niña Sport</a></li>
-            <li><a href="../pages/boxer-niño.html">Boxer Niño</a></li>
-
-          </ul>
-         <a href="../pages/bombachas-colaless.html">
-          <h4>Bombacha y Colaless</h4>
-           </a>
-          <ul>
-            <li><a href="../pages/bombacha-universal.html">Bombacha Universal</a></li>
-            <li><a href="../pages/vedetinas.html">Vedetina</a></li>
-            <li><a href="../pages/culottes-encajes.html">Culottes de Encaje</a></li>
-          </ul>
-        </div>
-        <!-- Columna 3 -->
-        <div class="columna">
-          <a href="../pages/lenceria-masculina.html">
-
-            <h4>Lencería Masculina</h4>
-          </a>
-          <ul>
-            <li><a href="../pages/boxer-adulto.html">Boxer Uomo Adulto</a></li>
-            <li><a href="../pages/slip-adulto.html">Slip Adulto</a></li>
-          </ul>
-           <a href="../pages/medias-soquetes.html">
-             <h4>Medias y Soquetes</h4>
-           </a>
-          <ul>
-            <li><a href="../pages/soquetes.html">Soquetes</a></li>
-            <li><a href="../pages/medias.html">Medias</a></li>
-          </ul>
-
-          
-         <a href="../pages/pijamas.html">
-           <h4>Pijama</h4>
-          </a>
-          <ul>
-            <li><a href="../pages/pijama-osito.html">Pijama Osito</a></li>
-          </ul>
-        </div>
-      </div>
-    </li>
-
-    <li class="dropdown">
-      <a href="../pages/contacto.html">Contacto</a>
-    </li>
-
-    <li class="dropdown">
-      <a href="../pages/preguntas.html">Preguntas frecuentes</a>
-    </li>
-  </ul>
-</nav>
-
-<div id="ver-carrito" class="acciones">
-
-  <a href="../pages/carrito.html" id="ver-carrito" class="acciones cart-icon-link">
-  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-check-fill" viewBox="0 0 16 16">
-    <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m-1.646-7.646-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L8 8.293l2.646-2.647a.5.5 0 0 1 .708.708"/>
-  </svg>
-  <span id="cart-item-count" class="cart-item-count hidden">0</span>
-</a>
-  </header>
-
-<main class="cart-page-container">
-    <section class="cart-items-section">
-        <div class="cart-header-row">
-            <div class="header-product">PRODUCTOS</div>
-            <div class="header-detail">DETALLE</div>
-            <div class="header-price">PRECIO</div>
-            <div class="header-quantity">CANTIDAD</div>
-            <div class="header-subtotal">SUBTOTAL</div>
-            <div class="header-actions"></div> </div>
-
-        <div id="cart-items-list" class="cart-items-list">
-            </div>
-
-        <button id="clear-cart-button" class="clear-cart-button">Vaciar Carrito</button>
-    </section>
-
-    <aside class="cart-summary-section">
-        <h2 class="summary-title">Resumen del Pedido</h2>
-        <div class="summary-line">
-            <span>Subtotal:</span>
-            <span id="cart-subtotal-display">$ 0,00</span>
-        </div>
-        <div class="summary-line total">
-            <span>Total:</span>
-            <span id="cart-total-display">$ 0,00</span>
+        <!-- Logo -->
+        <div class="logo">
+            <a href="../index.html">
+                <img src="../assets/img/logo.jpeg" alt="Entre Encajes" class="logo-img">
+            </a>
         </div>
 
-        <button id="checkout-button" class="checkout-button">Confirmar Pedido</button>
+        <!-- Botón hamburguesa -->
+        <button class="hamburguesa" id="btn-menu">☰</button>
 
-        <div id="mercado-pago-button-container" class="mercado-pago-button-container"></div>
-    </aside>
-</main>
+        <!-- Menú -->
+        <nav class="menu" id="menu">
+            <button class="cerrar-menu">✕</button>
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
 
-<div id="notification-message" class="notification-message hidden">
+                <!-- Categorías -->
+                <li class="megadropdown">
+                    <a href="">Categorías ▾</a>
+                    <div class="megamenú">
+                        <div class="columna">
+                            <h4>Ropa Interior Femenina</h4>
+                            <ul>
+                                <li><a href="../pages/conjuntos-clasicos.html">Conjuntos Clásicos</a></li>
+                                <li><a href="../pages/conjuntos-aro.html">Conjuntos con Aro / Push-Up</a></li>
+                                <li><a href="../pages/estilo-bralette.html">Conjuntos sin Aro / Bralette</a></li>
+                                <li><a href="../pages/deportivo-calvinklein.html">Conjuntos Deportivo</a></li>
+                            </ul>
+                        </div>
+                        <div class="columna">
+                            <a href="../pages/niñas.html"><h4>Ropa Interior Infantil</h4></a>
+                            <ul>
+                                <li><a href="../pages/bombacha-niña.html">Bombacha Nena</a></li>
+                                <li><a href="../pages/niña-sport.html">Conjunto Niña Sport</a></li>
+                                <li><a href="../pages/boxer-niño.html">Boxer Niño</a></li>
+                            </ul>
+                            <a href="../pages/bombachas-colaless.html"><h4>Bombacha y Colaless</h4></a>
+                            <ul>
+                                <li><a href="../pages/bombacha-universal.html">Bombacha Universal</a></li>
+                                <li><a href="../pages/vedetinas.html">Vedetina</a></li>
+                                <li><a href="../pages/culottes-encajes.html">Culottes de Encaje</a></li>
+                            </ul>
+                        </div>
+                        <div class="columna">
+                            <a href="../pages/lenceria-masculina.html"><h4>Lencería Masculina</h4></a>
+                            <ul>
+                                <li><a href="../pages/boxer-adulto.html">Boxer Uomo Adulto</a></li>
+                                <li><a href="../pages/slip-adulto.html">Slip Adulto</a></li>
+                            </ul>
+                            <a href="../pages/medias-soquetes.html"><h4>Medias y Soquetes</h4></a>
+                            <ul>
+                                <li><a href="../pages/soquetes.html">Soquetes</a></li>
+                                <li><a href="../pages/medias.html">Medias</a></li>
+                            </ul>
+                            <a href="../pages/pijamas.html"><h4>Pijama</h4></a>
+                            <ul>
+                                <li><a href="../pages/pijama-osito.html">Pijama Osito</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+
+                <li><a href="../pages/contacto.html">Contacto</a></li>
+                <li><a href="../pages/preguntas.html">Preguntas Frecuentes</a></li>
+
+<!-- Carrito en mobile -->
+<li class="cart-mobile-item">
+    <a href="../pages/carrito.html" class="cart-icon-link">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+            class="bi bi-cart-check-fill" viewBox="0 0 16 16">
+            <path
+                d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m-1.646-7.646-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L8 8.293l2.646-2.647a.5.5 0 0 1 .708.708" />
+        </svg>
+        Carrito
+        <span id="cart-count-mobile" class="cart-count hidden">0</span>
+    </a>
+</li>
+
+            </ul>
+        </nav>
+
+        <!-- Carrito en desktop -->
+        <a href="../pages/carrito.html" id="ver-carrito" class="acciones cart-desktop-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cart-check-fill" viewBox="0 0 16 16">
+                <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m-1.646-7.646-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L8 8.293l2.646-2.647a.5.5 0 0 1 .708.708"/>
+            </svg>
+            <span id="cart-item-count-desktop" class="cart-count-hidden">0</span>
+        </a>
     </div>
+</header>
 
-    <div class="cart-item">
-  <!-- ... (tus elementos actuales) ... -->
-  <div class="cart-item-actions">
-    <button class="remove-item-button" data-id="${item.id}">✕</button>
-  </div>
-</div>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Carrito de Compras</title>
+    <link rel="stylesheet" href="style.css"> </head>
+<body>
 
+    <header class="cart-header">
+        <h1>🛒 Mi Carrito de Compras</h1>
+    </header>
+
+    <main class="cart-container">
+        <section class="cart-items">
+            </section>
+
+        <section class="cart-summary">
+            <h2>Resumen del Pedido</h2>
+            <div class="summary-details">
+                <div class="subtotal-container">
+                    <span>Subtotal:</span>
+                    <span id="subtotal-price">$ 0.00</span>
+                </div>
+                <div class="total-container">
+                    <h3>Total:</h3>
+                    <h3 id="total-price">$ 0.00</h3>
+                </div>
+            </div>
+            <div class="cart-actions">
+                <button id="continue-shopping-btn" class="continue-shopping-btn">🛍️ Seguir Comprando</button>
+                <button id="checkout-btn" class="checkout-btn">Finalizar Compra</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="../js/cards.js"></script> </body>
+</html>
+
+<!--FOOTER-->
 <footer class="footer">
   <div class="footer-container">
     <div class="footer-logo">
@@ -263,6 +254,35 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+</script>
+
+<Script>
+    // --- CONTADOR DEL CARRITO EN HEADER ---
+  document.addEventListener('DOMContentLoaded', () => {
+    function updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+
+      const cartCountDesktop = document.getElementById('cart-item-count-desktop');
+      if (cartCountDesktop) {
+        cartCountDesktop.innerText = totalItems;
+        cartCountDesktop.classList.toggle('hidden', totalItems === 0);
+      }
+
+      const cartCountMobile = document.getElementById('cart-count-mobile');
+      if (cartCountMobile) {
+        cartCountMobile.innerText = totalItems;
+        cartCountMobile.classList.toggle('hidden', totalItems === 0);
+      }
+    }
+
+    updateCartCount();
+
+    // Si el carrito cambia en otra pestaña, actualiza el contador
+    window.addEventListener('storage', function(e) {
+      if (e.key === 'cart') updateCartCount();
+    });
+  });
 </script>
 </body>
 </html>

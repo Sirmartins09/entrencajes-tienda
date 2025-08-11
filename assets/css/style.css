@@ -241,7 +241,7 @@ body {
     align-items: center; /* Centrar verticalmente */
     gap: 15px; /* Espacio entre el buscador y el carrito */
 }
-
+/* pagina carriot de compras*/ 
 .cart-icon-link {
     position: relative; /* Esencial para posicionar el contador absolutamente */
     display: flex; /* Para alinear el SVG y el contador si es necesario */
@@ -257,31 +257,151 @@ body {
     fill: #333; /* O el color que uses para tus íconos */
 }
 
-
-.cart-item-count {
-    background-color: #c00; /* Color de fondo del contador (ej: rojo) */
-    color: #fff; /* Color del texto del contador */
-    border-radius: 50%; /* Para hacerlo redondo */
-    padding: 2px 6px; /* Ajusta el padding para el tamaño */
-    font-size: 0.8em; /* Tamaño de la fuente */
-    font-weight: bold;
-    position: absolute; /* Posicionamiento absoluto respecto a .cart-icon-link */
-    top: -8px; /* Ajusta para que quede arriba del ícono */
-    right: -8px; /* Ajusta para que quede a la derecha del ícono */
-    min-width: 20px; /* Asegura que sea redondo incluso con un dígito */
-    height: 20px; /* Asegura una altura fija para un círculo perfecto */
-    display: flex; /* Para centrar el número dentro del círculo */
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box; /* Incluye padding y borde en el width/height */
-    z-index: 10; /* Asegura que esté por encima de otros elementos */
-    line-height: 1; /* Ayuda a centrar el texto verticalmente */
+.cart-item {
+  display: flex;
+  flex-wrap: wrap; /* permite que baje de línea en pantallas chicas */
+  gap: 8px;
 }
 
-/* Opcional: Ocultar el contador si está en 0 */
-.cart-item-count.hidden {
+.cart-item-price,
+.cart-item-subtotal {
+  flex: 1 1 100px; /* que se ajusten sin superponerse */
+  text-align: left;
+}
+
+.cart-item-product img {
+  max-width: 100px; /* ancho máximo */
+  height: auto;     /* mantiene proporción */
+  border-radius: 8px;
+}
+
+.cart-count-hidden {
+    background: #008064;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 90%;
+    font-size: 0.8rem;
+    margin-left: 4px;
+    display: inline-block;
+    min-width: 15px;
+    text-align: center;
+}
+
+.cart-item-count-mobile {
+    background: #008064;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 90%;
+    font-size: 0.8rem;
+    margin-left: 4px;
+    display: inline-block;
+    min-width: 15px;
+    text-align: center;
+}
+/* ...existing code... */
+#cart-item-count-desktop {
     display: none;
 }
+#cart-count-mobile {
+    display: none;
+}
+
+@media (min-width: 1024px) {
+    #cart-item-count-desktop {
+        display: inline-block;
+    }
+}
+@media (max-width: 1023px) {
+    #cart-count-mobile {
+        display: inline-block;
+    }
+}
+/* ...existing code... */
+
+/* Eliminar o comentar los estilos relacionados con subtotal */
+.header-subtotal {
+    display: none;
+}
+
+/* Ajustar el ancho de las otras columnas */
+.header-product { width: 30%; }
+.header-detail { width: 25%; }
+.header-price { width: 15%; }
+.header-quantity { width: 15%; }
+.header-actions { width: 15%; }
+@media (max-width: 480px) {
+  .cart-item-quantity-control {
+    display: none !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .cart-item {
+    flex-direction: column; /* Apila todo verticalmente */
+    align-items: flex-start;
+  }
+
+  .cart-item-price,
+  .cart-item-subtotal {
+    flex: none;
+    width: 100%;
+  }
+}
+
+
+@media (max-width: 768px) {
+    .cart-desktop-link {
+        display: none;
+    }
+    .cart-mobile-item {
+        display: block;
+        margin-top: 1rem;
+    }
+}
+
+@media (min-width: 769px) {
+    .cart-mobile-item {
+        display: none;
+    }
+}
+
+/* Solo aplica en mobile */
+@media (max-width: 480px) {
+    .cart-mobile-item {
+      margin-top: 0;
+        padding-top: 0;
+        background: none; /* Quita el fondo verde del ítem */
+        color: inherit;   /* Hereda el color normal */
+        padding: 0;
+        border-radius: 0;
+        font-size: inherit;
+        margin-left: 0;
+        display: block;
+        min-width: unset;
+        text-align: center;
+
+    }
+     #cart-count-mobile {
+        background: #008064; /* Verde solo para el contador */
+        color: white;
+        padding: 2px 6px;
+        border-radius: 50%;
+        font-size: 0.8rem;
+        margin-left: 4px;
+        display: inline-block;
+        min-width: 15px;
+        text-align: center;
+        position: relative;
+        top: -2px; /* Sube un poco el contador si lo deseas */
+    }
+    .cart-icon-link {
+        top: -20px; /* Sube aún más el icono en pantallas muy pequeñas */
+
+    }
+    .cart-mobile-item
+
+}
+
 
 /* Buscador */
 .buscador {
@@ -1541,208 +1661,335 @@ body {
 /*================================================*/
 /* Estilos Específicos para la Página del Carrito */
 /*=================================================*/
-.cart-page-container {
-    display: flex;
-    flex-wrap: wrap; /* Permite que las secciones se apilen en pantallas pequeñas */
-    gap: 30px; /* Espacio entre las columnas */
-    padding: 30px;
-    max-width: 1200px; /* Ancho máximo del contenedor principal */
-    margin: 0 auto; /* Centra el contenedor en la página */
-    box-sizing: border-box; /* Asegura que el padding no añada ancho extra */
-}
-
-.page-title {
-    font-size: 2.2em;
-    text-align: center;
-    margin-bottom: 25px;
-    color: #222;
-    width: 100%; /* Asegura que el título ocupe todo el ancho */
-    padding-top: 20px; /* Espacio para que no quede pegado al header */
-}
-
-.cart-items-section {
-    flex: 2; /* Ocupa más espacio, 2/3 del ancho disponible */
-    min-width: 500px; /* Ancho mínimo para la lista de items */
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    padding: 20px;
-    box-sizing: border-box;
-}
-
-.cart-summary-section {
-    flex: 1; /* Ocupa menos espacio, 1/3 del ancho disponible */
-    min-width: 300px; /* Ancho mínimo para el resumen */
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    padding: 20px;
-    box-sizing: border-box;
-}
-
-/* Encabezados de la tabla del carrito */
-.cart-header-row {
-    display: grid;
-    /* Define 6 columnas: imagen (pequeña), detalles (ancha), precio, cantidad, subtotal, eliminar (pequeña) */
-    grid-template-columns: 0.8fr 2fr 1fr 1fr 1fr 0.3fr; 
-    gap: 10px;
-    padding-bottom: 10px;
-    margin-bottom: 15px;
-    border-bottom: 1px solid #eee;
-    font-weight: bold;
-    color: #555;
-    text-transform: uppercase;
-    font-size: 0.9em;
-    align-items: center; /* Centra verticalmente el texto */
-}
-
-/* Alinear los encabezados */
-.header-price, 
-.header-subtotal {
-    justify-content: flex-end; /* Alinear a la derecha los precios/subtotales */
-    text-align: right; /* Asegura el texto a la derecha */
-}
-.header-quantity {
-    justify-content: center; /* Centrar la cantidad */
-    text-align: center; /* Asegura el texto centrado */
-}
-.header-product, 
-.header-detail, 
-.header-actions {
-    display: flex; /* Usar flex para alinear contenido */
-    align-items: center; /* Centrar verticalmente */
-}
-.header-product {
-    justify-content: flex-start; /* Alinear a la izquierda */
-}
-.header-actions {
-    justify-content: flex-end; /* Alinear el botón de eliminar a la derecha */
-}
-
-
-/* Estilo para cada item del carrito */
-.cart-item {
-    display: grid;
-    /* Mismas columnas que el header para mantener la alineación */
-    grid-template-columns: 0.8fr 2fr 1fr 1fr 1fr 0.3fr; 
-    gap: 10px;
-    align-items: center;
-    padding: 15px 0;
-    border-bottom: 1px solid #f0f0f0; /* Separador entre ítems */
-}
-
-.cart-item:last-child {
-    border-bottom: none; /* Eliminar borde del último item para no duplicar */
-}
-
-.cart-item-image-col {
-    width: 80px;
-    height: 80px;
-    object-fit: cover; /* Asegura que la imagen no se distorsione */
-    border-radius: 5px;
-}
-
-.cart-item-details {
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Centra verticalmente el contenido */
-}
-
-.cart-item-title {
-    font-weight: bold;
-    margin-bottom: 5px;
-    font-size: 1.1em;
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
     color: #333;
 }
 
-.cart-item-info {
-    font-size: 0.9em;
-    color: #777;
-    margin-bottom: 3px; /* Espacio entre líneas de info */
+.cart-header {
+    background-color: #fff;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
 }
 
-.cart-item-price, 
-.cart-item-subtotal {
-    text-align: right; /* Alinea el texto del precio a la derecha */
-    font-weight: bold;
-    color: #c00; /* Color distintivo para el precio */
-    white-space: nowrap; /* Evita que el precio se rompa en varias líneas */
+.cart-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px;
 }
 
-/* Controles de cantidad dentro del carrito */
-.quantity-control-cart {
+.cart-items {
+    flex: 2;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    min-width: 300px;
+}
+
+.cart-item {
     display: flex;
     align-items: center;
-    justify-content: center; /* Centrar los controles de cantidad */
+    gap: 20px;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.item-details {
+    flex-grow: 1;
+}
+
+.item-details h4 {
+    margin: 0 0 5px 0;
+    font-size: 1.1em;
+}
+
+.item-details p {
+    margin: 0;
+    color: #666;
+}
+
+.quantity-control {
+    display: flex;
+    align-items: center;
     gap: 5px;
 }
 
-.quantity-button-cart {
-    width: 30px;
-    height: 30px;
-    border: 1px solid #ccc;
-    background-color: #f8f8f8;
-    border-radius: 5px;
+.quantity-control button {
+    background-color: #eee;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 1.2em;
+    border-radius: 4px;
+}
+
+.item-price {
+    font-weight: bold;
     font-size: 1.1em;
-    cursor: pointer;
-    display: flex; /* Para centrar el - o + */
-    justify-content: center;
-    align-items: center;
-    transition: background-color 0.2s;
-    flex-shrink: 0; /* Evita que se encoja */
+    min-width: 80px;
+    text-align: right;
 }
 
-.quantity-button-cart:hover {
-    background-color: #e0e0e0;
+.cart-summary {
+    flex: 1;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    min-width: 250px;
+    max-height: 250px;
 }
 
-.quantity-input-cart {
-    width: 40px;
-    padding: 5px;
-    text-align: center;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1em;
-    box-sizing: border-box; /* Incluye padding y borde en el ancho */
+.summary-details div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
 }
 
-/* Botón para eliminar un solo item */
-.remove-item-button {
-    background: none;
-    border: none;
-    color: #c00; /* Color rojo para el botón de eliminar */
-    font-size: 1.5em; /* Tamaño del icono de la papelera */
-    cursor: pointer;
-    transition: color 0.2s;
-    display: flex; /* Para centrar la X */
-    justify-content: center;
-    align-items: center;
-    width: 100%; /* Ocupa el espacio disponible en su celda */
+#total-price {
+    color: #e94e77; /* Color destacado para el total */
 }
 
-.remove-item-button:hover {
-    color: #ff0000;
-}
-
-/* Botón "Vaciar Carrito" */
-.clear-cart-button {
-    background-color: #dc3545; /* Rojo para "vaciar carrito" */
-    color: #fff;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1em;
+.cart-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     margin-top: 20px;
-    display: block; /* Ocupa su propia línea */
-    width: fit-content; /* Se ajusta al contenido del texto */
-    margin-left: auto; /* Alinea el botón a la derecha dentro de su contenedor */
+}
+
+.continue-shopping-btn, .checkout-btn {
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
     transition: background-color 0.3s;
 }
 
-.clear-cart-button:hover {
-    background-color: #c82333;
+.continue-shopping-btn {
+    background-color: #eee;
+    color: #333;
 }
+
+.checkout-btn {
+    background-color: #e94e77;
+    color: #fff;
+    font-weight: bold;
+}
+
+.checkout-btn:hover {
+    background-color: #d13a64;
+}
+
+.continue-shopping-btn:hover {
+    background-color: #ddd;
+}
+
+/* Resumen del pedido */
+.summary-title {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #333;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.summary-line {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    font-size: 1rem;
+}
+
+.summary-line.total {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #d32f2f;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.checkout-button {
+    width: 100%;
+    padding: 15px;
+    background-color: #d32f2f;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.checkout-button:hover {
+    background-color: #b71c1c;
+}
+
+.payment-methods {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.payment-methods p {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.payment-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    font-size: 1.8rem;
+    color: #666;
+}
+
+.cart-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.continue-button {
+    padding: 10px 20px;
+    background-color: #f5f5f5;
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.continue-button:hover {
+    background-color: #eee;
+}
+
+.clear-cart-button {
+    padding: 10px 20px;
+    background-color: transparent;
+    color: #d32f2f;
+    border: 1px solid #d32f2f;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.clear-cart-button:hover {
+    background-color: #ffebee;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .cart-page-container {
+        gap: 20px;
+        padding: 15px;
+    }
+    
+    .cart-items-section,
+    .cart-summary-section {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .cart-page-container {
+        flex-direction: column;
+    }
+    
+    .cart-header-row,
+    .cart-item {
+        grid-template-columns: 80px 1fr 1fr;
+        gap: 10px;
+    }
+    
+    .header-price,
+    .header-quantity,
+    .header-subtotal,
+    .header-actions,
+    .cart-item-price,
+    .cart-item-quantity-control,
+    .cart-item-subtotal,
+    .remove-item-button {
+        grid-row: 2;
+    }
+    
+    .header-product { display: none; }
+    
+    .cart-item-details {
+        grid-column: 2 / 4;
+    }
+    
+    .header-price { grid-column: 1 / 2; }
+    .cart-item-price { grid-column: 1 / 2; text-align: left; }
+    
+    .header-quantity { grid-column: 2 / 3; }
+    .cart-item-quantity-control { grid-column: 2 / 3; justify-content: flex-start; }
+    
+    .header-subtotal { grid-column: 3 / 4; }
+    .cart-item-subtotal { grid-column: 3 / 4; text-align: right; }
+    
+    .header-actions { grid-column: 3 / 4; }
+    .remove-item-button { grid-column: 3 / 4; }
+}
+
+@media (max-width: 480px) {
+    .cart-header-row,
+    .cart-item {
+        grid-template-columns: 70px 1fr;
+    }
+    
+    .cart-item-details {
+        grid-column: 1 / 3;
+        grid-row: 1;
+    }
+    
+    .cart-item-image {
+        grid-row: 2;
+        width: 60px;
+        height: 60px;
+    }
+    
+    .cart-item-price,
+    .cart-item-quantity-control,
+    .cart-item-subtotal,
+    .remove-item-button {
+        grid-row: 2;
+        grid-column: span 1;
+        justify-content: flex-start;
+    }
+    
+    .cart-item-subtotal {
+        text-align: left;
+    }
+    
+    .cart-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .continue-button,
+    .clear-cart-button {
+        width: 100%;
+    }
+}
+
 
 /* Mensaje de carrito vacío */
 .empty-cart-message {
@@ -1999,8 +2246,9 @@ body {
 .payment-status-message .btn:hover {
   background-color: #444;
 }
-
+/*---------------------------------------------------------------*/
 /* --- Estilos para la Página de Preguntas Frecuentes (FAQ) --- */
+/*-------------------------------------------------------------*/
 
 .faq-page-content {
     max-width: 900px;
@@ -2462,4 +2710,45 @@ body {
         padding: 10px;
         font-size: 0.95em;
     }
+}
+
+/*NOTIFICACIONES*/
+.notification {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 24px;
+    border-radius: 4px;
+    color: white;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    z-index: 1000;
+    animation: slideIn 0.3s ease-out;
+}
+
+.notification.success {
+    background-color: #4CAF50;
+}
+
+.notification.error {
+    background-color: #F44336;
+}
+
+.notification.info {
+    background-color: #2196F3;
+}
+
+.notification.fade-out {
+    animation: fadeOut 0.3s ease-out forwards;
+}
+
+@keyframes slideIn {
+    from { bottom: -50px; opacity: 0; }
+    to { bottom: 20px; opacity: 1; }
+}
+
+@keyframes fadeOut {
+    from { bottom: 20px; opacity: 1; }
+    to { bottom: -50px; opacity: 0; }
 }
